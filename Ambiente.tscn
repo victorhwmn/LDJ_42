@@ -2,13 +2,13 @@
 
 [ext_resource path="res://Cenas/Background.jpg" type="Texture" id=1]
 
-[node name="Ambiente" type="Node2D"]
+[node name="Ambiente" type="Node2D" index="0"]
 
 editor/display_folded = true
 
 [node name="Piso" type="Sprite" parent="." index="0"]
 
-position = Vector2( 12, -13 )
+position = Vector2( 486.217, 291.057 )
 texture = ExtResource( 1 )
 
 

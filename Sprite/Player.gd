@@ -3,65 +3,130 @@ extends RigidBody2D
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
-var deslocamento_x = Vector2(5,0);
-var deslocamento_y = Vector2(0,5);
+var deslocamento_x = Vector2(4,0);
+var deslocamento_y = Vector2(0,4);
 var direcao = 0;
 var flag = false;
+var pos_x = 0;
+var pos_y = 0;
+var matrixY =[104,184,264,344,424];
+var matrixX =[176,272,364,460,552,648,740]
+var d;
+var mov_flag = 0;
 
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
 	pass
 
-func _input(event):
+
+
+func _physics_process(delta):
 	var inputL = false;
 	var inputR = false;
 	var inputU = false;
 	var inputD = false;
 	var is_pressed = false;
 	
-	inputL = event.is_action_pressed("ui_left");
-	inputR = event.is_action_pressed("ui_right");
-	inputU = event.is_action_pressed("ui_up");
-	inputD = event.is_action_pressed("ui_down");
-	is_pressed = event.is_pressed();
+	inputL = Input.is_action_pressed("ui_left");
+	inputR = Input.is_action_pressed("ui_right");
+	inputU = Input.is_action_pressed("ui_up");
+	inputD = Input.is_action_pressed("ui_down");
 	
-	
-	if is_pressed == false :
-		direcao = 0;
-	if inputU :
-		direcao = direcao +1;
-	if inputD :
-		direcao = direcao + 2;
-	if inputL :
-		direcao = direcao + 4;
-	if inputR :
-		direcao = direcao + 8;
-
-func _physics_process(delta):
-	
-	
+	direcao = 0;
+	if inputU:
+		direcao = 1;
+	if inputD:
+		direcao = 2;
+	if inputL:
+		direcao = 3;
+	if inputR:
+		direcao = 4;
 	_atualiza_pos(direcao);
 
 func _atualiza_pos(direcao):
 	
-	if(direcao == 1) :
+	if direcao != 0:
+		d = direcao;
+	
+	if position.y > 104 and direcao == 1 :
 		set_position(position - deslocamento_y);
-	elif direcao == 2 :
+	elif position.y < 424 and direcao == 2 :
 		set_position(position + deslocamento_y);
-	elif direcao == 4 :
+	elif position.x > 176 and direcao == 3 :
 		set_position(position - deslocamento_x);
-	elif direcao == 5 :
-		set_position(position - deslocamento_x - deslocamento_y);
-	elif direcao == 6:
-		set_position(position - deslocamento_x + deslocamento_y);
-	elif direcao == 8 :
-		set_position(position + deslocamento_x);
-	elif direcao == 9 :
-		set_position(position + deslocamento_x - deslocamento_y);
-	elif direcao == 10:
-		set_position(position + deslocamento_x + deslocamento_y);
-	
-	
-	
+	elif position.x < 740 and direcao == 4 :
+		set_position(position + deslocamento_x);	
+	elif direcao == 0 :
+		var i = 0;
+		var pisox = 100000;
+		var pisoy = 100000;
+		var flagChangeX = true;
+		var flagChangeY = true;
+		var dif;
+		for i in range(5):
+			if position.y != matrixY[i] :
+				dif = position.y - matrixY[i];
+				if abs(dif) < abs(pisoy) : 
+					pisoy = dif;
+					pos_y = i;
+					if d == 1 and dif < 0:
+						pisoy = pisoy * -1;
+					elif d == 2 and dif > 0:
+						pisoy = pisoy * -1
+			else :
+				flagChangeY = false;
+		for i in range(7):
+			if position.x != matrixX[i] :
+				dif = position.x - matrixX[i]
+				if abs(dif) < abs(pisox) :
+					pisox = dif;
+					pos_x = i;
+					if d == 3 and dif < 0:
+						pisox = pisox * -1;
+					elif d == 4 and dif > 0:
+						pisox = pisox * -1
+			else :
+				flagChangeX = false;		
+		
+		if flagChangeX == true or flagChangeY == true:
+			if abs(pisoy) < 100000 and flagChangeY == true :
+				if pisoy > 0:
+					if abs(pisoy) < 4: 
+						set_position(position - Vector2(0,abs(pisoy)));
+					else :
+						set_position(position - deslocamento_y);
+				else :
+					if abs(pisoy) < 4 :
+						set_position(position + Vector2(0,abs(pisoy)));
+					else :
+						set_position(position + deslocamento_y);
+			elif abs(pisox) < 100000 and flagChangeX == true :
+				if pisox > 0:
+					if abs(pisox) < 4 :
+						set_position(position - Vector2(0,abs(pisox)));
+					else :
+						set_position(position - deslocamento_x);
+				else :
+					if abs(pisox) < 4 :
+						set_position(position + Vector2(0,abs(pisox)));
+					else :
+						set_position(position + deslocamento_x);
+					
+					
+					
 
+					
+					 		
+#		if position.y > matrixY[pos_y] :
+#			set_position(position - deslocamento_y);
+#		else :
+#			set_position(position + deslocamento_y);
+#	elif position.x != matrixX[pos_x] :
+#		if position.x > matrixX[pos_x] :
+#			set_position(position - deslocamento_x);
+#		else :
+#			set_position(position + deslocamento_x);
+			##104
+	## 176	##74x90	##828
+			##496

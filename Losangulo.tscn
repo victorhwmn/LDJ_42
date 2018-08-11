@@ -7,7 +7,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 7.04864, 10.7956 )
 
-[node name="Losangulo" type="RigidBody2D" index="0"]
+[node name="Losangulo" type="RigidBody2D"]
 
 input_pickable = false
 collision_layer = 1
