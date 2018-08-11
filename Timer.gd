@@ -3,7 +3,7 @@ extends Timer
 var obj
 var x
 var y
-var TrashMatrix = [[],[],[],[],[]]
+var TrashMatrix = [[],[],[],[],[],[],[]]
 var level = 1
 var trashcount = 0
 var spawn_itens = [
@@ -33,9 +33,9 @@ func _brota_lixo():
 	
 func _gera_coordenada():
 	randomize()
-	x = randi()%5
+	x = randi()%7
 	randomize()
-	y = randi()%7
+	y = randi()%5
 	randomize()
 	obj = randi()%3
 	
@@ -50,8 +50,11 @@ func _level_up():
 	
 func _instancia_lixo():
 	var item = spawn_itens[obj].instance()
-	item.set_position(Vector2((80*x)+120,(96*y)+144))
+	item.set_position(Vector2((96*x)+176,(80*y)+104))
 	get_node("/root/MainGame").add_child(item)
+	
+	
+	
 	#converter coordenada gerada para a coordenada do jogo
 	#instanciar o objeto
 	

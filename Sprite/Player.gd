@@ -6,7 +6,6 @@ extends RigidBody2D
 var deslocamento_x = Vector2(4,0);
 var deslocamento_y = Vector2(0,4);
 var direcao = 0;
-var flag = false;
 var pos_x = 0;
 var pos_y = 0;
 var matrixY =[104,184,264,344,424];
@@ -46,24 +45,29 @@ func _physics_process(delta):
 
 func _atualiza_pos(direcao):
 	
+	var pisox = 100000;
+	var pisoy = 100000;
+	var i = 0;
+	var dif;
+	
 	if direcao != 0:
 		d = direcao;
-	
+		
 	if position.y > 104 and direcao == 1 :
-		set_position(position - deslocamento_y);
+		if 	_verifica_posicao(direcao) :
+			set_position(position - deslocamento_y);
 	elif position.y < 424 and direcao == 2 :
-		set_position(position + deslocamento_y);
+		if 	_verifica_posicao(direcao) :
+			set_position(position + deslocamento_y);
 	elif position.x > 176 and direcao == 3 :
-		set_position(position - deslocamento_x);
+		if 	_verifica_posicao(direcao) :
+			set_position(position - deslocamento_x);
 	elif position.x < 740 and direcao == 4 :
-		set_position(position + deslocamento_x);	
+		if 	_verifica_posicao(direcao) :
+			set_position(position + deslocamento_x);	
 	elif direcao == 0 :
-		var i = 0;
-		var pisox = 100000;
-		var pisoy = 100000;
 		var flagChangeX = true;
 		var flagChangeY = true;
-		var dif;
 		for i in range(5):
 			if position.y != matrixY[i] :
 				dif = position.y - matrixY[i];
@@ -112,11 +116,57 @@ func _atualiza_pos(direcao):
 						set_position(position + Vector2(0,abs(pisox)));
 					else :
 						set_position(position + deslocamento_x);
+		
+	var flag = false;
+	i = 0;
+	pisox = 100000;
+	pisoy = 100000;
+	while i  < 5 and flag == false :
+		if position.y == matrixY[i] :
+			flag = true;
+			pos_y = i;
+		else :		
+			dif = position.y - matrixY[i];
+			if abs(dif) < abs(pisoy) :
+				pisoy = dif;
+				pos_y = i;
+			i = i+1;
+	flag = false;
+	i = 0;
+	while i < 7 and flag == false :
+			if position.x == matrixX[i] :
+				flag = true;
+				pos_x = i;
+			else :
+				dif = position.x - matrixX[i]
+				if abs(dif) < abs(pisox) :
+					pisox = dif;
+					pos_x = i;
+			i = i+1;
+	#print(pos_x,"aaaa",pos_y)			
 					
-					
-					
-
-					
+func _verifica_posicao(direcao) :
+	
+	var Matrix = get_node("/root/MainGame/Timer").TrashMatrix
+	match direcao:
+		1 :
+			if 	Matrix[pos_x].find(pos_y-1,0) != -1 :
+				direcao = 0;
+		2 : 
+			if 	Matrix[pos_x].find(pos_y+1,0) != -1 :
+				direcao = 0;
+		3 :
+			if 	Matrix[pos_x-1].find(pos_y,0) != -1 :
+				direcao = 0;
+		4 : 
+			if 	Matrix[pos_x+1].find(pos_y,0) != -1 :
+				direcao = 0;	
+	
+	if direcao == 0 :
+		return(false);
+	return(true);
+	
+			
 					 		
 #		if position.y > matrixY[pos_y] :
 #			set_position(position - deslocamento_y);
