@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Ambiente.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Timer.gd" type="Script" id=3]
 
 [node name="MainGame" type="Node2D" index="0"]
 
@@ -20,5 +21,13 @@ show_behind_parent = true
 position = Vector2( 487.58, 309.625 )
 scale = Vector2( 1, 1.0625 )
 _sections_unfolded = [ "Material", "Visibility" ]
+
+[node name="Timer" type="Timer" parent="." index="2"]
+
+process_mode = 1
+wait_time = 5.0
+one_shot = false
+autostart = true
+script = ExtResource( 3 )
 
 
