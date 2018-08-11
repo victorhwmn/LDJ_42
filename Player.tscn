@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Sprite/Player.gd" type="Script" id=1]
+[ext_resource path="res://Sprite/Personagem.jpg" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 31.8706, 24.1575 )
+_sections_unfolded = [ "Resource" ]
+
+[node name="Player" type="RigidBody2D" index="0"]
+
+position = Vector2( 50.0288, -33.489 )
+scale = Vector2( 1.03125, 0.9375 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+mode = 3
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+
+position = Vector2( -45.7596, 37.4361 )
+scale = Vector2( 0.969697, 1.06667 )
+z_index = -7
+shape = SubResource( 1 )
+_sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index" ]
+
+[node name="Sprite" type="Sprite" parent="." index="1"]
+
+position = Vector2( -61.5615, 20.5402 )
+texture = ExtResource( 2 )
+offset = Vector2( 14.1765, 17.8598 )
+_sections_unfolded = [ "Visibility" ]
+
+

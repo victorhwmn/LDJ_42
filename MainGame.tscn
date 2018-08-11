@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Ambiente.tscn" type="PackedScene" id=2]
+
+[node name="MainGame" type="Node2D"]
+
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="RigidBody2D" parent="." index="0" instance=ExtResource( 1 )]
+
+_sections_unfolded = [ "Applied Forces", "Collision", "Pickable", "Transform", "Visibility", "Z Index" ]
+
+[node name="Ambiente" parent="." index="1" instance=ExtResource( 2 )]
+
+editor/display_folded = false
+show_behind_parent = true
+position = Vector2( -21, 5 )
+scale = Vector2( 1, 1.0625 )
+_sections_unfolded = [ "Material", "Visibility" ]
+
+
