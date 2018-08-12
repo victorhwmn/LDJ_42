@@ -50,6 +50,13 @@ func _gera_coordenada():
 	
 func _level_up():
 	level += 1
+	if level == 2:
+		wait_time = 2
+	elif level >8:
+		wait_time = 0.25
+	else:
+		wait_time -= 0.25
+		
 	#subir a dificuldade
 	
 #func _process(delta):

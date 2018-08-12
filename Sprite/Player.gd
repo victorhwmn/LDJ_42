@@ -13,7 +13,7 @@ var matrixX =[176,272,364,460,552,648,740]
 var d;
 var mov_flag = 0;
 var Com_objeto = -1;
-
+var points = 0
 signal posicao_player
 
 func _ready():
@@ -265,16 +265,19 @@ func _interacao_player_obj(matrix) :
 				if Com_objeto == 2 :
 					Com_objeto = -1; 
 					$lata.hide()
+					points += 10
 				continue;
 			4 :
 				if Com_objeto == 1 :
 					$papel.hide();
 					Com_objeto = -1;
+					points += 10
 				continue;
 			5 :
 				if Com_objeto == 0 :
 					$banana.hide();
 					Com_objeto = -1;
+					points += 10
 				continue;
 	return(false);		
 			 		
