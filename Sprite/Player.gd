@@ -68,57 +68,8 @@ func _atualiza_pos(direcao):
 		if 	_verifica_posicao(direcao) :
 			set_position(position + deslocamento_x);	
 	elif direcao == 0 :
-		var flagChangeX = true;
-		var flagChangeY = true;
-		for i in range(5):
-			if position.y != matrixY[i] :
-				dif = position.y - matrixY[i];
-				if abs(dif) < abs(pisoy) : 
-					pisoy = dif;
-					pos_y = i;
-					if d == 1 and dif < 0:
-						pisoy = pisoy * -1;
-					elif d == 2 and dif > 0:
-						pisoy = pisoy * -1
-			else :
-				flagChangeY = false;
-		for i in range(7):
-			if position.x != matrixX[i] :
-				dif = position.x - matrixX[i]
-				if abs(dif) < abs(pisox) :
-					pisox = dif;
-					pos_x = i;
-					if d == 3 and dif < 0:
-						pisox = pisox * -1;
-					elif d == 4 and dif > 0:
-						pisox = pisox * -1
-			else :
-				flagChangeX = false;		
-		
-		if flagChangeX == true or flagChangeY == true:
-			if abs(pisoy) < 100000 and flagChangeY == true :
-				if pisoy > 0:
-					if abs(pisoy) < 4: 
-						set_position(position - Vector2(0,abs(pisoy)));
-					else :
-						set_position(position - deslocamento_y);
-				else :
-					if abs(pisoy) < 4 :
-						set_position(position + Vector2(0,abs(pisoy)));
-					else :
-						set_position(position + deslocamento_y);
-			elif abs(pisox) < 100000 and flagChangeX == true :
-				if pisox > 0:
-					if abs(pisox) < 4 :
-						set_position(position - Vector2(0,abs(pisox)));
-					else :
-						set_position(position - deslocamento_x);
-				else :
-					if abs(pisox) < 4 :
-						set_position(position + Vector2(0,abs(pisox)));
-					else :
-						set_position(position + deslocamento_x);
-		
+		_aproximacao_player()
+	
 	var flag = false;
 	i = 0;
 	pisox = 100000;
@@ -166,9 +117,68 @@ func _verifica_posicao(direcao) :
 				direcao = 0;	
 	
 	if direcao == 0 :
+		_aproximacao_player()
 		return(false);
 	return(true);
 	
+func _aproximacao_player() :
+	var pisox = 100000;
+	var pisoy = 100000;
+	var i = 0;
+	var dif;
+	
+	
+	var flagChangeX = true;
+	var flagChangeY = true;
+	for i in range(5):
+		if position.y != matrixY[i] :
+			dif = position.y - matrixY[i];
+			if abs(dif) < abs(pisoy) : 
+				pisoy = dif;
+				pos_y = i;
+				if d == 1 and dif < 0:
+					pisoy = pisoy * -1;
+				elif d == 2 and dif > 0:
+					pisoy = pisoy * -1
+		else :
+			flagChangeY = false;
+	for i in range(7):
+		if position.x != matrixX[i] :
+			dif = position.x - matrixX[i]
+			if abs(dif) < abs(pisox) :
+				pisox = dif;
+				pos_x = i;
+				if d == 3 and dif < 0:
+					pisox = pisox * -1;
+				elif d == 4 and dif > 0:
+					pisox = pisox * -1
+		else :
+			flagChangeX = false;		
+		
+	if flagChangeX == true or flagChangeY == true:
+		if abs(pisoy) < 100000 and flagChangeY == true :
+			if pisoy > 0:
+				if abs(pisoy) < 4: 
+					set_position(position - Vector2(0,abs(pisoy)));
+				else :
+					set_position(position - deslocamento_y);
+			else :
+				if abs(pisoy) < 4 :
+					set_position(position + Vector2(0,abs(pisoy)));
+				else :
+					set_position(position + deslocamento_y);
+		elif abs(pisox) < 100000 and flagChangeX == true :
+			if pisox > 0:
+				if abs(pisox) < 4 :
+					set_position(position - Vector2(0,abs(pisox)));
+				else :
+					set_position(position - deslocamento_x);
+			else :
+				if abs(pisox) < 4 :
+					set_position(position + Vector2(0,abs(pisox)));
+				else :
+					set_position(position + deslocamento_x);
+		
 			
 					 		
 #		if position.y > matrixY[pos_y] :
