@@ -12,12 +12,14 @@ var matrixY =[104,184,264,344,424];
 var matrixX =[176,272,364,460,552,648,740]
 var d;
 var mov_flag = 0;
+var Com_objeto = -1;
 
 signal posicao_player
 
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
+	
 	pass
 
 
@@ -100,28 +102,51 @@ func _atualiza_pos(direcao):
 	emit_signal("posicao_player", Vector2(pos_x, pos_y))			
 					
 func _verifica_posicao(direcao) :
-	
+#Verifica se o jogador pode movimentar para o proximo bloco	
+#Lixos : 0,1,2 	Lixeiras 3,4,5
 	var Matrix = get_node("/root/MainGame/Timer").TrashMatrix
+	
 	match direcao:
 		1 :
-			if 	pos_y > 0 and Matrix[pos_x][pos_y-1] != -1 :
+			if position.x == matrixX[pos_x] :
+				if 	(pos_y > 0 and Matrix[pos_x][pos_y-1] != -1):
+					if!(_interacao_player_obj(Matrix[pos_x][pos_y-1])):
+						direcao = 0;
+			else :
 				direcao = 0;
+			continue;
 		2 : 
-			if 	pos_y <  4 and Matrix[pos_x][pos_y+1] != -1 :
+			if position.x == matrixX[pos_x] :
+				if 	pos_y <  4 and Matrix[pos_x][pos_y+1] != -1:
+					if!(_interacao_player_obj(Matrix[pos_x][pos_y+1])) :
+						direcao = 0;
+			else :
 				direcao = 0;
+			continue;
 		3 :
-			if 	pos_x > 0 and Matrix[pos_x-1][pos_y] != -1 :
+			if position.y == matrixY[pos_y]:
+				if 	(pos_x > 0 and Matrix[pos_x-1][pos_y] != -1):
+					if!(_interacao_player_obj(Matrix[pos_x-1][pos_y])):
+						direcao = 0;
+			else :
 				direcao = 0;
+			continue;
 		4 : 
-			if 	pos_x < 6 and Matrix[pos_x+1][pos_y] != -1 :
+			if position.y == matrixY[pos_y]:
+				if 	(pos_x < 6 and Matrix[pos_x+1][pos_y] != -1):
+					if!(_interacao_player_obj(Matrix[pos_x+1][pos_y])):
+						direcao = 0;
+			else:		
 				direcao = 0;	
-	
+			continue;
+	print("direcao",direcao)
 	if direcao == 0 :
 		_aproximacao_player()
 		return(false);
 	return(true);
 	
 func _aproximacao_player() :
+
 	var pisox = 100000;
 	var pisoy = 100000;
 	var i = 0;
@@ -178,9 +203,30 @@ func _aproximacao_player() :
 					set_position(position + Vector2(0,abs(pisox)));
 				else :
 					set_position(position + deslocamento_x);
-		
-			
-					 		
+
+func _interacao_player_obj(matrix) :
+	
+	print(matrix,"aaa",Com_objeto);
+	if matrix > -1 and matrix < 3 and Com_objeto == -1 :
+		Com_objeto = matrix;
+		print("Com_objeto",Com_objeto);
+		return(true);
+	elif matrix >= 3:
+		match matrix:
+			3 :
+				if Com_objeto == 0 :
+					Com_objeto = -1; 
+				continue;
+			4 :
+				if Com_objeto == 1 :
+					Com_objeto = -1;
+				continue;
+			5 :
+				if Com_objeto == 2 :
+					Com_objeto = -1;
+				continue;
+	return(false);		
+			 		
 #		if position.y > matrixY[pos_y] :
 #			set_position(position - deslocamento_y);
 #		else :

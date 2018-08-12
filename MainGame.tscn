@@ -12,12 +12,14 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Player" parent="." index="0" instance=ExtResource( 2 )]
 
+editor/display_folded = true
 position = Vector2( 176, 104 )
 scale = Vector2( 1.13603, 1.1769 )
 _sections_unfolded = [ "Applied Forces", "Collision", "Pickable", "Transform", "Visibility", "Z Index" ]
 
 [node name="Ambiente" parent="." index="1" instance=ExtResource( 3 )]
 
+editor/display_folded = false
 show_behind_parent = true
 position = Vector2( 14.0959, -10.197 )
 scale = Vector2( 1, 1.0625 )

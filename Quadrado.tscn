@@ -7,7 +7,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Quadrado" type="RigidBody2D"]
+[node name="Quadrado" type="RigidBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -27,6 +27,7 @@ linear_velocity = Vector2( 0, 0 )
 linear_damp = -1.0
 angular_velocity = 0.0
 angular_damp = -1.0
+_sections_unfolded = [ "Pickable" ]
 
 [node name="Quadrado" type="Sprite" parent="." index="0"]
 

@@ -16,6 +16,7 @@ func _ready():
 		item = lixeira[z].instance()
 		_gera_coordenada()
 		pos[z] = Vector2(x,y)
+		flag = true
 		while flag == true:
 			for a in range(z+1):
 				if pos[a] == pos[z] and a != z :
@@ -35,10 +36,13 @@ func _ready():
 	pass
 
 func _gera_coordenada():
-	randomize()
-	x = randi()%7
-	randomize()
-	y = randi()%5
+	x = 0;
+	y = 0;
+	while x == 0 and y == 0:
+		randomize()
+		x = randi()%7
+		randomize()
+		y = randi()%5
 	
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.

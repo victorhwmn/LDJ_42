@@ -18,6 +18,7 @@ var spawn_itens = [
 	preload("res://Losangulo.tscn"),
 	preload("res://Triangulo.tscn"),
 	preload("res://Quadrado.tscn")]
+enum Objetos {Banana = 0,Papel,Latinha,LixeiraAmarelo,LixeiraAzul,LixeiraMarrom}
 
 func _ready():
 	#quando o tempo acaba brota mais lixo
@@ -75,7 +76,7 @@ func _on_MainGame_lixeiras_pos(pos):
 
 
 func _on_Player_posicao_player(new_pos_player):
-	print(new_pos_player.x,"aaaa",new_pos_player.y)
+	#print(new_pos_player.x,"aaaa",new_pos_player.y)
 	TrashMatrix[pos_player.x][pos_player.y] = -1
 	pos_player = new_pos_player
 	TrashMatrix[pos_player.x][pos_player.y] = 7
