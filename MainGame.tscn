@@ -1,9 +1,33 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://MainGame.gd" type="Script" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Ambiente.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Timer.gd" type="Script" id=4]
+[ext_resource path="res://Sprite/Player/sprite_00.png" type="Texture" id=3]
+[ext_resource path="res://Sprite/Player/sprite_07.png" type="Texture" id=4]
+[ext_resource path="res://Sprite/Player/sprite_08.png" type="Texture" id=5]
+[ext_resource path="res://Sprite/Player/sprite_01.png" type="Texture" id=6]
+[ext_resource path="res://Sprite/Player/sprite_02.png" type="Texture" id=7]
+[ext_resource path="res://Ambiente.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Timer.gd" type="Script" id=9]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "Stop",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "Back-walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "Front-walk",
+"speed": 5.0
+} ]
 
 [node name="MainGame" type="Node2D" index="0"]
 
@@ -12,12 +36,22 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Player" parent="." index="0" instance=ExtResource( 2 )]
 
-editor/display_folded = true
 position = Vector2( 176, 104 )
 scale = Vector2( 1.13603, 1.1769 )
 _sections_unfolded = [ "Applied Forces", "Collision", "Pickable", "Transform", "Visibility", "Z Index" ]
 
-[node name="Ambiente" parent="." index="1" instance=ExtResource( 3 )]
+[node name="Sprite" parent="Player" index="0"]
+
+scale = Vector2( 1e-005, 1e-005 )
+_sections_unfolded = [ "Region", "Transform", "Visibility" ]
+
+[node name="Sprites" type="AnimatedSprite" parent="Player" index="2"]
+
+position = Vector2( 38.3194, 28.8974 )
+frames = SubResource( 1 )
+animation = "Stop"
+
+[node name="Ambiente" parent="." index="1" instance=ExtResource( 8 )]
 
 editor/display_folded = false
 show_behind_parent = true
@@ -31,7 +65,7 @@ process_mode = 1
 wait_time = 1.0
 one_shot = false
 autostart = true
-script = ExtResource( 4 )
+script = ExtResource( 9 )
 
 [connection signal="lixeiras_pos" from="." to="Timer" method="_on_MainGame_lixeiras_pos"]
 

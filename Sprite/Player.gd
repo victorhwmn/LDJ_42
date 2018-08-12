@@ -21,10 +21,11 @@ func _ready():
 	# Initialization here
 	
 	pass
-
+var sprite = ["Stop", "Front-walk", "Back-walk"]
 
 
 func _physics_process(delta):
+	#$Sprites.play(sprite[0])
 	var inputL = false;
 	var inputR = false;
 	var inputU = false;
@@ -45,7 +46,14 @@ func _physics_process(delta):
 		direcao = 3;
 	if inputR:
 		direcao = 4;
+	if(direcao != 1):
+		$Sprites.play(sprite[1])
+	elif direcao == 1:
+		$Sprites.play(sprite[2])
+	else:
+		$Sprites.play(sprite[0])
 	_atualiza_pos(direcao);
+	
 
 func _atualiza_pos(direcao):
 	
