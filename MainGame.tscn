@@ -7,7 +7,7 @@
 [ext_resource path="res://Sprite/Player/sprite_05.png" type="Texture" id=5]
 [ext_resource path="res://Sprite/Player/sprite_10.png" type="Texture" id=6]
 [ext_resource path="res://Sprite/Player/sprite_11.png" type="Texture" id=7]
-[ext_resource path="res://Sprite/Player/sprite_09.png" type="Texture" id=8]
+[ext_resource path="res://Sprite/Player/sprite_03.png" type="Texture" id=8]
 [ext_resource path="res://Sprite/Player/sprite_01.png" type="Texture" id=9]
 [ext_resource path="res://Sprite/Player/sprite_02.png" type="Texture" id=10]
 [ext_resource path="res://Sprite/Player/sprite_07.png" type="Texture" id=11]
@@ -79,7 +79,6 @@ _sections_unfolded = [ "Visibility" ]
 
 [node name="Ambiente" parent="." index="1" instance=ExtResource( 13 )]
 
-editor/display_folded = false
 show_behind_parent = true
 position = Vector2( 14.0959, -10.197 )
 scale = Vector2( 1, 1.0625 )

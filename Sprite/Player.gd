@@ -157,7 +157,7 @@ func _verifica_posicao(direcao) :
 	match direcao:
 		1 :
 			if position.x == matrixX[pos_x] :
-				if 	(pos_y > 0 and Matrix[pos_x][pos_y-1] != -1):
+				if 	(pos_y > 0 and Matrix[pos_x][pos_y-1] != -1) and position.y == matrixY[pos_y]:
 					if!(_interacao_player_obj(Matrix[pos_x][pos_y-1])):
 						direcao = 0;
 			else :
@@ -165,7 +165,7 @@ func _verifica_posicao(direcao) :
 			continue;
 		2 : 
 			if position.x == matrixX[pos_x] :
-				if 	pos_y <  4 and Matrix[pos_x][pos_y+1] != -1:
+				if 	pos_y <  4 and Matrix[pos_x][pos_y+1] != -1 and position.y == matrixY[pos_y]:
 					if!(_interacao_player_obj(Matrix[pos_x][pos_y+1])) :
 						direcao = 0;
 			else :
@@ -173,7 +173,7 @@ func _verifica_posicao(direcao) :
 			continue;
 		3 :
 			if position.y == matrixY[pos_y]:
-				if 	(pos_x > 0 and Matrix[pos_x-1][pos_y] != -1):
+				if 	(pos_x > 0 and Matrix[pos_x-1][pos_y] != -1) and position.x == matrixX[pos_x]:
 					if!(_interacao_player_obj(Matrix[pos_x-1][pos_y])):
 						direcao = 0;
 			else :
@@ -181,7 +181,7 @@ func _verifica_posicao(direcao) :
 			continue;
 		4 : 
 			if position.y == matrixY[pos_y]:
-				if 	(pos_x < 6 and Matrix[pos_x+1][pos_y] != -1):
+				if 	(pos_x < 6 and Matrix[pos_x+1][pos_y] != -1) and position.x == matrixX[pos_x]:
 					if!(_interacao_player_obj(Matrix[pos_x+1][pos_y])):
 						direcao = 0;
 			else:		
@@ -262,9 +262,9 @@ func _interacao_player_obj(matrix) :
 	elif matrix >= 3:
 		match matrix:
 			3 :
-				if Com_objeto == 0 :
+				if Com_objeto == 2 :
 					Com_objeto = -1; 
-					$banana.hide();
+					$lata.hide()
 				continue;
 			4 :
 				if Com_objeto == 1 :
@@ -272,8 +272,8 @@ func _interacao_player_obj(matrix) :
 					Com_objeto = -1;
 				continue;
 			5 :
-				if Com_objeto == 2 :
-					$lata.hide()
+				if Com_objeto == 0 :
+					$banana.hide();
 					Com_objeto = -1;
 				continue;
 	return(false);		
