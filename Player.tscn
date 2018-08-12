@@ -9,7 +9,7 @@ custom_solver_bias = 0.0
 extents = Vector2( 35.098, 24.1575 )
 _sections_unfolded = [ "Resource" ]
 
-[node name="Player" type="RigidBody2D"]
+[node name="Player" type="RigidBody2D" index="0"]
 
 position = Vector2( -2.39801, -1.58395 )
 scale = Vector2( 1.03125, 0.9375 )
