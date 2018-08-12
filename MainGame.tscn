@@ -5,7 +5,7 @@
 [ext_resource path="res://Ambiente.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Timer.gd" type="Script" id=4]
 
-[node name="MainGame" type="Node2D"]
+[node name="MainGame" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform", "Visibility" ]
@@ -32,6 +32,8 @@ autostart = true
 script = ExtResource( 4 )
 
 [connection signal="lixeiras_pos" from="." to="Timer" method="_on_MainGame_lixeiras_pos"]
+
+[connection signal="posicao_player" from="Player" to="Timer" method="_on_Player_posicao_player"]
 
 
 [editable path="Player"]

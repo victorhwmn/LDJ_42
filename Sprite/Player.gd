@@ -13,6 +13,8 @@ var matrixX =[176,272,364,460,552,648,740]
 var d;
 var mov_flag = 0;
 
+signal posicao_player
+
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
@@ -143,23 +145,24 @@ func _atualiza_pos(direcao):
 					pisox = dif;
 					pos_x = i;
 			i = i+1;
-	#print(pos_x,"aaaa",pos_y)			
+	#print(pos_x,"aaaa",pos_y)
+	emit_signal("posicao_player", Vector2(pos_x, pos_y))			
 					
 func _verifica_posicao(direcao) :
 	
 	var Matrix = get_node("/root/MainGame/Timer").TrashMatrix
 	match direcao:
 		1 :
-			if 	Matrix[pos_x].find(pos_y-1,0) != -1 :
+			if 	pos_y > 0 and Matrix[pos_x][pos_y-1] != -1 :
 				direcao = 0;
 		2 : 
-			if 	Matrix[pos_x].find(pos_y+1,0) != -1 :
+			if 	pos_y <  4 and Matrix[pos_x][pos_y+1] != -1 :
 				direcao = 0;
 		3 :
-			if 	Matrix[pos_x-1].find(pos_y,0) != -1 :
+			if 	pos_x > 0 and Matrix[pos_x-1][pos_y] != -1 :
 				direcao = 0;
 		4 : 
-			if 	Matrix[pos_x+1].find(pos_y,0) != -1 :
+			if 	pos_x < 6 and Matrix[pos_x+1][pos_y] != -1 :
 				direcao = 0;	
 	
 	if direcao == 0 :
