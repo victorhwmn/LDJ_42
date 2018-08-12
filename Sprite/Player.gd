@@ -21,7 +21,7 @@ func _ready():
 	# Initialization here
 	
 	pass
-var sprite = ["Stop", "Front-walk", "Back-walk"]
+var sprite = ["Stop", "Front-walk", "Back-walk","Stop item", "Front-walk item", "Back-walk item"]
 
 
 func _physics_process(delta):
@@ -32,10 +32,10 @@ func _physics_process(delta):
 	var inputD = false;
 	var is_pressed = false;
 	
-	inputL = Input.is_action_pressed("ui_left");
-	inputR = Input.is_action_pressed("ui_right");
-	inputU = Input.is_action_pressed("ui_up");
-	inputD = Input.is_action_pressed("ui_down");
+	inputL = Input.is_action_pressed("ui_left") or Input.is_key_pressed(KEY_A);
+	inputR = Input.is_action_pressed("ui_right") or Input.is_key_pressed(KEY_D);
+	inputU = Input.is_action_pressed("ui_up") or Input.is_key_pressed(KEY_W);
+	inputD = Input.is_action_pressed("ui_down") or Input.is_key_pressed(KEY_S);
 	
 	direcao = 0;
 	if inputU:
@@ -46,12 +46,52 @@ func _physics_process(delta):
 		direcao = 3;
 	if inputR:
 		direcao = 4;
-	if(direcao != 1):
-		$Sprites.play(sprite[1])
+	if(direcao > 1 ):
+		if Com_objeto == -1 :
+			$Sprites.play(sprite[1])
+		else :
+			$Sprites.play(sprite[4])
+			match Com_objeto :
+				0 : 
+					$banana.show();
+					continue;
+				1 : 
+					$papel.show();
+					continue;
+				2 : 
+					$lata.show();
+					continue;		
+			
 	elif direcao == 1:
-		$Sprites.play(sprite[2])
+		if Com_objeto == -1 :
+			$Sprites.play(sprite[2])
+		else :
+			$Sprites.play(sprite[5])
+			match Com_objeto :
+				0 : 
+					$banana.show();
+					continue;
+				1 : 
+					$papel.show();
+					continue;
+				2 : 
+					$lata.show();
+					continue
 	else:
-		$Sprites.play(sprite[0])
+		if Com_objeto == -1 :
+			$Sprites.play(sprite[0])
+		else :
+			$Sprites.play(sprite[3])
+			match Com_objeto :
+				0 : 
+					$banana.show();
+					continue;
+				1 : 
+					$papel.show();
+					continue;
+				2 : 
+					$lata.show();
+					continue;
 	_atualiza_pos(direcao);
 	
 
@@ -224,13 +264,16 @@ func _interacao_player_obj(matrix) :
 			3 :
 				if Com_objeto == 0 :
 					Com_objeto = -1; 
+					$banana.hide();
 				continue;
 			4 :
 				if Com_objeto == 1 :
+					$papel.hide();
 					Com_objeto = -1;
 				continue;
 			5 :
 				if Com_objeto == 2 :
+					$lata.hide()
 					Com_objeto = -1;
 				continue;
 	return(false);		
