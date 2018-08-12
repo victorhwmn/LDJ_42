@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Sprite/Triangulo.jpg" type="Texture" id=1]
+[ext_resource path="res://Sprite/papel.png" type="Texture" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 12.4438 )
 
-[node name="Triangulo" type="RigidBody2D" index="0"]
+[node name="Triangulo" type="RigidBody2D"]
 
 input_pickable = false
 collision_layer = 1

@@ -3,7 +3,14 @@ extends Timer
 var obj
 var x
 var y
-var TrashMatrix = [[],[],[],[],[],[],[]]
+var TrashMatrix = [
+	[-1,-1,-1,-1,-1],
+	[-1,-1,-1,-1,-1],
+	[-1,-1,-1,-1,-1],
+	[-1,-1,-1,-1,-1],
+	[-1,-1,-1,-1,-1],
+	[-1,-1,-1,-1,-1],
+	[-1,-1,-1,-1,-1]]
 var level = 1
 var trashcount = 0
 var spawn_itens = [
@@ -21,9 +28,9 @@ func _brota_lixo():
 	while a != true:
 		_gera_coordenada()
 		#verifica se existe algo na matriz ou se o número gerado já existe
-		if TrashMatrix[x].empty() == true or TrashMatrix[x].find(y, 0) == -1:
+		if TrashMatrix[x][y] == -1:
 			a = true
-			TrashMatrix[x].push_back(y)
+			TrashMatrix[x][y] = obj
 			_instancia_lixo()
 	trashcount += 1
 	if trashcount % 20 == 0:
@@ -58,3 +65,8 @@ func _instancia_lixo():
 	#converter coordenada gerada para a coordenada do jogo
 	#instanciar o objeto
 	
+
+func _on_MainGame_lixeiras_pos(pos):
+	for z in range(3):
+		TrashMatrix[pos[z].x][pos[z].y] = 3+z
+	pass # replace with function body
