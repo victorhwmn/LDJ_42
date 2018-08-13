@@ -103,3 +103,6 @@ func _on_Player_posicao_player(new_pos_player):
 	TrashMatrix[pos_player.x][pos_player.y] = 7
 	pass # replace with function body
 
+func atualiza_matriz(new_pos):
+	TrashMatrix[new_pos.x][new_pos.y] = -1
+
