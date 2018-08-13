@@ -7,7 +7,10 @@ path="res://.import/Game_over.png-4d1555a34350234b873c2eead817bbad.stex"
 [deps]
 
 source_file="res://Sprite/Game_over.png"
+source_md5="2b6ce4ecd917a9acaa0b17b464036f22"
+
 dest_files=[ "res://.import/Game_over.png-4d1555a34350234b873c2eead817bbad.stex" ]
+dest_md5="304b0097a2576c28b2bda8319b75083d"
 
 [params]
 

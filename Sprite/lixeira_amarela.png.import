@@ -7,7 +7,10 @@ path="res://.import/lixeira_amarela.png-c035230cb045a0fa2716da7868d304cb.stex"
 [deps]
 
 source_file="res://Sprite/lixeira_amarela.png"
+source_md5="14b6826e11547b2d150c5c1ea5f34fa6"
+
 dest_files=[ "res://.import/lixeira_amarela.png-c035230cb045a0fa2716da7868d304cb.stex" ]
+dest_md5="a193cfeef6b0b347bf1462e16c4d6dcd"
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/sprite_01.png-28d45afde5e6366d68e46b504a9f7dfc.stex"
+path="res://.import/stage.png-842299465f0b5fef48c6ebea0f29944f.stex"
 
 [deps]
 
-source_file="res://Sprite/Player/sprite_01.png"
-source_md5="af04e0d396763375d9dde97779cfb6a0"
+source_file="res://Cenas/stage.png"
+source_md5="5bfc2daa5196bed7768ced04cc2a841f"
 
-dest_files=[ "res://.import/sprite_01.png-28d45afde5e6366d68e46b504a9f7dfc.stex" ]
-dest_md5="3ea54e01ac27bc61590b9b83e2abce3b"
+dest_files=[ "res://.import/stage.png-842299465f0b5fef48c6ebea0f29944f.stex" ]
+dest_md5="a07cdc72a46f56835ae9c787698b9de9"
 
 [params]
 

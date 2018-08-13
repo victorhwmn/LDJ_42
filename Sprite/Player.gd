@@ -296,19 +296,22 @@ func _interacao_player_obj(matrix) :
 				if Com_objeto == 0 :
 					Com_objeto = -1; 
 					$banana.hide();
-					points += 10
+					if flag_acao == false :
+						points += 10
 				continue;
 			4 :
 				if Com_objeto == 1 :
 					$papel.hide();
 					Com_objeto = -1;
-					points += 10
+					if flag_acao == false :
+						points += 10
 				continue;
 			5 :
 				if Com_objeto == 2 :
 					$lata.hide()
 					Com_objeto = -1;
-					points += 10
+					if flag_acao == false :
+						points += 10
 				continue;
 	return(false);		
 			 	

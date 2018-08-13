@@ -7,7 +7,10 @@ path="res://.import/Triangulo.jpg-fb764554417935afb2ae18f9a9ab0c43.stex"
 [deps]
 
 source_file="res://Sprite/Triangulo.jpg"
+source_md5="98db12c96b4ea761fcc05a42cd79c66a"
+
 dest_files=[ "res://.import/Triangulo.jpg-fb764554417935afb2ae18f9a9ab0c43.stex" ]
+dest_md5="58c052c62532fcb55b900207d0634627"
 
 [params]
 

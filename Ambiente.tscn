@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Cenas/Background.jpg" type="Texture" id=1]
 [ext_resource path="res://Sprite/lixeira_amarela.png" type="Texture" id=2]
@@ -7,11 +7,13 @@
 [ext_resource path="res://Sprite/banana.png" type="Texture" id=5]
 [ext_resource path="res://Sprite/lata.png" type="Texture" id=6]
 [ext_resource path="res://Sprite/papel.png" type="Texture" id=7]
+[ext_resource path="res://Cenas/stage.png" type="Texture" id=8]
 
 [node name="Ambiente" type="Node2D"]
 
 [node name="Piso" type="Sprite" parent="." index="0"]
 
+visible = false
 position = Vector2( 486.217, 291.057 )
 texture = ExtResource( 1 )
 
@@ -56,5 +58,11 @@ position = Vector2( 99.1812, 403.419 )
 scale = Vector2( 0.481833, 0.46128 )
 texture = ExtResource( 7 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="stage" type="Sprite" parent="." index="7"]
+
+position = Vector2( 483.211, 289.148 )
+scale = Vector2( 0.969401, 0.953585 )
+texture = ExtResource( 8 )
 
 

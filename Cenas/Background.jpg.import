@@ -7,7 +7,10 @@ path="res://.import/Background.jpg-f4cbc005be78f6327d15a3c959feef08.stex"
 [deps]
 
 source_file="res://Cenas/Background.jpg"
+source_md5="86311700d4b348b8aa75f5a18b23da49"
+
 dest_files=[ "res://.import/Background.jpg-f4cbc005be78f6327d15a3c959feef08.stex" ]
+dest_md5="a2d7d77e11ba5658281102bbdeec1d43"
 
 [params]
 

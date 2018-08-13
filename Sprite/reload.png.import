@@ -7,7 +7,10 @@ path="res://.import/reload.png-d0835a3ca01c2ca5802cf9ad580e9533.stex"
 [deps]
 
 source_file="res://Sprite/reload.png"
+source_md5="a20fd0c7e5af6a481d8caeaa083c7f29"
+
 dest_files=[ "res://.import/reload.png-d0835a3ca01c2ca5802cf9ad580e9533.stex" ]
+dest_md5="686d573a2deaa6519c7e30f8d97e0828"
 
 [params]
 

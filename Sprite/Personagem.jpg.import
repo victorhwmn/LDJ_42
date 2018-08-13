@@ -7,7 +7,10 @@ path="res://.import/Personagem.jpg-46f378defdfea0284be983d5d5dc80b3.stex"
 [deps]
 
 source_file="res://Sprite/Personagem.jpg"
+source_md5="08adde92f0ff6c453f66bf8681ceb849"
+
 dest_files=[ "res://.import/Personagem.jpg-46f378defdfea0284be983d5d5dc80b3.stex" ]
+dest_md5="148532a9a2373389840ca6d2f54047a4"
 
 [params]
 

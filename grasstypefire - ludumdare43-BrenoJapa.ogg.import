@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/grasstypefire - ludumdare43-BrenoJapa.ogg-88c3ce0c2a71ec5545e7fa36c0670dce.oggstr"
+
+[deps]
+
+source_file="res://grasstypefire - ludumdare43-BrenoJapa.ogg"
+source_md5="080ccca603b97d25785c61b28ccdf314"
+
+dest_files=[ "res://.import/grasstypefire - ludumdare43-BrenoJapa.ogg-88c3ce0c2a71ec5545e7fa36c0670dce.oggstr" ]
+dest_md5="7e050adf3d6f50fb35f18f1fe7f16ad2"
+
+[params]
+
+loop=true
+loop_offset=0

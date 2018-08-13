@@ -7,7 +7,10 @@ path="res://.import/Losangulo.jpg-8588bdc97a8946e18eb6197b8ecabf1a.stex"
 [deps]
 
 source_file="res://Sprite/Losangulo.jpg"
+source_md5="7e8abb5a8c9f1ba00bf2c6a9f2c892cb"
+
 dest_files=[ "res://.import/Losangulo.jpg-8588bdc97a8946e18eb6197b8ecabf1a.stex" ]
+dest_md5="635e3d9ba75f610d7a08762395f53b64"
 
 [params]
 
