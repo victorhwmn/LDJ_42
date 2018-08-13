@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://MainGame.gd" type="Script" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -13,9 +13,13 @@
 [ext_resource path="res://Sprite/Player/sprite_04.png" type="Texture" id=11]
 [ext_resource path="res://Sprite/Player/sprite_05.png" type="Texture" id=12]
 [ext_resource path="res://Ambiente.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Timer.gd" type="Script" id=14]
-[ext_resource path="res://Label2.gd" type="Script" id=15]
-[ext_resource path="res://Label4.gd" type="Script" id=16]
+[ext_resource path="res://Sprite/teclas_0.png" type="Texture" id=14]
+[ext_resource path="res://Sprite/teclas_1.png" type="Texture" id=15]
+[ext_resource path="res://Sprite/teclas_2.png" type="Texture" id=16]
+[ext_resource path="res://Sprite/teclas_3.png" type="Texture" id=17]
+[ext_resource path="res://Timer.gd" type="Script" id=18]
+[ext_resource path="res://Label2.gd" type="Script" id=19]
+[ext_resource path="res://Label4.gd" type="Script" id=20]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -81,11 +85,127 @@ _sections_unfolded = [ "Visibility" ]
 
 [node name="Ambiente" parent="." index="1" instance=ExtResource( 13 )]
 
-editor/display_folded = true
 show_behind_parent = true
 position = Vector2( 14.0959, -10.197 )
 scale = Vector2( 1, 1.0625 )
 _sections_unfolded = [ "Material", "Visibility" ]
+
+[node name="tecla_setas" type="Sprite" parent="Ambiente" index="7"]
+
+position = Vector2( 873.449, 185.998 )
+texture = ExtResource( 14 )
+
+[node name="tecla_wasd" type="Sprite" parent="Ambiente" index="8"]
+
+position = Vector2( 969.62, 185.461 )
+texture = ExtResource( 15 )
+
+[node name="tecla_space" type="Sprite" parent="Ambiente" index="9"]
+
+position = Vector2( 872.778, 256.052 )
+texture = ExtResource( 16 )
+
+[node name="tecla_q" type="Sprite" parent="Ambiente" index="10"]
+
+position = Vector2( 970.194, 269.991 )
+texture = ExtResource( 17 )
+
+[node name="or_1" type="Label" parent="Ambiente" index="11"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 906.0
+margin_top = 177.0
+margin_right = 946.0
+margin_bottom = 191.0
+rect_scale = Vector2( 1.25, 1.25 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "OR"
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+
+[node name="or_2" type="Label" parent="Ambiente" index="12"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 911.0
+margin_top = 240.0
+margin_right = 951.0
+margin_bottom = 254.0
+rect_scale = Vector2( 1.25, 1.25 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "OR"
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+
+[node name="move" type="Label" parent="Ambiente" index="13"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 840.0
+margin_top = 103.0
+margin_right = 1076.0
+margin_bottom = 134.0
+rect_scale = Vector2( 1.25, 1.25 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "MOVE AND TAKE 
+THE TRASHES WITH"
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Label" type="Label" parent="Ambiente" index="14"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 845.0
+margin_top = 208.0
+margin_right = 940.0
+margin_bottom = 222.0
+rect_scale = Vector2( 1.25, 1.25 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "SWITCH TRASH"
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
 
 [node name="Timer" type="Timer" parent="." index="2"]
 
@@ -93,7 +213,7 @@ process_mode = 1
 wait_time = 3.0
 one_shot = false
 autostart = true
-script = ExtResource( 14 )
+script = ExtResource( 18 )
 
 [node name="Score_Level" type="ParallaxBackground" parent="." index="3"]
 
@@ -190,7 +310,7 @@ autowrap = true
 percent_visible = 0.777778
 lines_skipped = 0
 max_lines_visible = -1
-script = ExtResource( 15 )
+script = ExtResource( 19 )
 _sections_unfolded = [ "Anchor", "Focus", "Margin", "Rect", "Size Flags" ]
 
 [node name="Level" type="Label" parent="Score_Level/PanelContainer/GridContainer" index="2"]
@@ -235,7 +355,7 @@ valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-script = ExtResource( 16 )
+script = ExtResource( 20 )
 _sections_unfolded = [ "Size Flags" ]
 
 [connection signal="lixeiras_pos" from="." to="Timer" method="_on_MainGame_lixeiras_pos"]
