@@ -7,10 +7,7 @@ path="res://.import/banana.png-b59ad5d833196d93f11752838e7d14e7.stex"
 [deps]
 
 source_file="res://Sprite/banana.png"
-source_md5="af01b3ea35c5614a3852d3b66c8e69f2"
-
 dest_files=[ "res://.import/banana.png-b59ad5d833196d93f11752838e7d14e7.stex" ]
-dest_md5="143508f0b23ef12bd136aa91ccdf7a9f"
 
 [params]
 

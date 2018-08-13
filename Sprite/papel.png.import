@@ -7,10 +7,7 @@ path="res://.import/papel.png-3a21dcbc881831d1f0979ed0d9113a91.stex"
 [deps]
 
 source_file="res://Sprite/papel.png"
-source_md5="d00e8000459202dff96e85cbe287333d"
-
 dest_files=[ "res://.import/papel.png-3a21dcbc881831d1f0979ed0d9113a91.stex" ]
-dest_md5="e4d19f060c692562572e2815d860ae7d"
 
 [params]
 

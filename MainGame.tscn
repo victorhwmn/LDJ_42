@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://MainGame.gd" type="Script" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -20,6 +20,10 @@
 [ext_resource path="res://Timer.gd" type="Script" id=18]
 [ext_resource path="res://Label2.gd" type="Script" id=19]
 [ext_resource path="res://Label4.gd" type="Script" id=20]
+[ext_resource path="res://Pause_button.gd" type="Script" id=21]
+[ext_resource path="res://Sprite/pause.png" type="Texture" id=22]
+[ext_resource path="res://Reload.gd" type="Script" id=23]
+[ext_resource path="res://Sprite/reload.png" type="Texture" id=24]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -76,7 +80,7 @@ _sections_unfolded = [ "Pause", "Z Index" ]
 
 [node name="Sprite" parent="Player" index="1"]
 
-scale = Vector2( 1e-05, 1e-05 )
+scale = Vector2( 1e-005, 1e-005 )
 _sections_unfolded = [ "Region", "Transform", "Visibility" ]
 
 [node name="banana" parent="Player" index="3"]
@@ -85,6 +89,7 @@ _sections_unfolded = [ "Visibility" ]
 
 [node name="Ambiente" parent="." index="1" instance=ExtResource( 13 )]
 
+editor/display_folded = true
 show_behind_parent = true
 position = Vector2( 14.0959, -10.197 )
 scale = Vector2( 1, 1.0625 )
@@ -217,7 +222,6 @@ script = ExtResource( 18 )
 
 [node name="Score_Level" type="ParallaxBackground" parent="." index="3"]
 
-editor/display_folded = true
 layer = 2
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -233,6 +237,7 @@ _sections_unfolded = [ "Scroll" ]
 
 [node name="PanelContainer" type="PanelContainer" parent="Score_Level" index="0"]
 
+editor/display_folded = true
 show_behind_parent = true
 anchor_left = 0.5
 anchor_top = 0.0
@@ -357,6 +362,102 @@ lines_skipped = 0
 max_lines_visible = -1
 script = ExtResource( 20 )
 _sections_unfolded = [ "Size Flags" ]
+
+[node name="Pause_button" type="Button" parent="Score_Level" index="1"]
+
+pause_mode = 2
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 634.0
+margin_top = 32.0
+margin_right = 646.0
+margin_bottom = 52.0
+rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+script = ExtResource( 21 )
+_sections_unfolded = [ "Pause", "Rect", "Size Flags" ]
+
+[node name="II" type="Sprite" parent="Score_Level/Pause_button" index="0"]
+
+position = Vector2( 6.4534, 12.5583 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 22 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Reload" type="Button" parent="Score_Level" index="2"]
+
+pause_mode = 2
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 673.0
+margin_top = 46.0
+margin_right = 685.0
+margin_bottom = 66.0
+rect_scale = Vector2( 1.5, 1 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = true
+align = 1
+script = ExtResource( 23 )
+_sections_unfolded = [ "Pause", "Rect" ]
+
+[node name="Sprite" type="Sprite" parent="Score_Level/Reload" index="0"]
+
+position = Vector2( 6.01506, 10.4693 )
+scale = Vector2( 0.815455, 1.34757 )
+texture = ExtResource( 24 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Pause" type="Label" parent="." index="4"]
+
+show_behind_parent = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 381.0
+margin_top = 257.0
+margin_right = 422.0
+margin_bottom = 271.0
+rect_scale = Vector2( 6, 6 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "PAUSE"
+align = 1
+valign = 1
+percent_visible = -0.142857
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "Visibility" ]
 
 [connection signal="lixeiras_pos" from="." to="Timer" method="_on_MainGame_lixeiras_pos"]
 

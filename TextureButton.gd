@@ -14,7 +14,8 @@ func _ready():
 	# "onPressed" is a function
 	pass
 func _input(event):
-	if event.is_action("ui_accept"):
+	
+	if event.is_action("ui_accept") :
 		onPressed();
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.

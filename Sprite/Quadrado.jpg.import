@@ -7,10 +7,7 @@ path="res://.import/Quadrado.jpg-122390829249fd3f9ffa68d0fe094074.stex"
 [deps]
 
 source_file="res://Sprite/Quadrado.jpg"
-source_md5="504585b48a64018f6fecc982c6a34e83"
-
 dest_files=[ "res://.import/Quadrado.jpg-122390829249fd3f9ffa68d0fe094074.stex" ]
-dest_md5="8769753e9c29fc6ead618fe1a5c75ba2"
 
 [params]
 

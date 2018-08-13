@@ -7,10 +7,7 @@ path="res://.import/botao_generico.png-3c2798cd1bdb29224031f2cd3090ca6c.stex"
 [deps]
 
 source_file="res://Sprite/botao_generico.png"
-source_md5="af9f7860b7e7a6df9796716db6bf7f97"
-
 dest_files=[ "res://.import/botao_generico.png-3c2798cd1bdb29224031f2cd3090ca6c.stex" ]
-dest_md5="29a7c4885fb00f671abb93a88eacf1b2"
 
 [params]
 

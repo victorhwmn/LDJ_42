@@ -7,10 +7,7 @@ path="res://.import/lixeira_marrom.png-116854523a877284e370f1d44c1f39cd.stex"
 [deps]
 
 source_file="res://Sprite/lixeira_marrom.png"
-source_md5="6de07170c1001a0ff31fdbfbc8611515"
-
 dest_files=[ "res://.import/lixeira_marrom.png-116854523a877284e370f1d44c1f39cd.stex" ]
-dest_md5="7c472426bb4f162a69b54373188c1d9d"
 
 [params]
 

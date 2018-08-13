@@ -7,10 +7,7 @@ path="res://.import/teclas_3.png-c09762407abfc2cde92afff7903c72cc.stex"
 [deps]
 
 source_file="res://Sprite/teclas_3.png"
-source_md5="40f0f31a66f82f9b78e9cb3a518874b4"
-
 dest_files=[ "res://.import/teclas_3.png-c09762407abfc2cde92afff7903c72cc.stex" ]
-dest_md5="11df09cbde3e3b0a85a4b1a66d3ed92c"
 
 [params]
 

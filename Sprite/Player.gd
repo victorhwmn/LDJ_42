@@ -3,6 +3,7 @@ extends RigidBody2D
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
+var inputInteracao = false;
 var deslocamento_x = Vector2(4,0);
 var deslocamento_y = Vector2(0,4);
 var direcao = 0;
@@ -37,7 +38,7 @@ func _physics_process(delta):
 	var inputR = false;
 	var inputU = false;
 	var inputD = false;
-	var inputInteracao = false;
+
 	var is_pressed = false;
 	
 	inputL = Input.is_action_pressed("ui_left") or Input.is_key_pressed(KEY_A);

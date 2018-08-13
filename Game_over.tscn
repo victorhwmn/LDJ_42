@@ -5,7 +5,7 @@
 [ext_resource path="res://TextureButton.gd" type="Script" id=3]
 [ext_resource path="res://Label.gd" type="Script" id=4]
 
-[node name="Game_over" type="Node2D" index="0"]
+[node name="Game_over" type="Node2D"]
 
 [node name="Game_over" type="Sprite" parent="." index="0"]
 
@@ -81,7 +81,7 @@ size_flags_vertical = 4
 size_flags_stretch_ratio = 1.03
 text = "ABCD"
 align = 3
-percent_visible = 1.16667
+percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 script = ExtResource( 4 )

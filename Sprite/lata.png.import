@@ -7,10 +7,7 @@ path="res://.import/lata.png-9238283f42372805b7e120f46b4d3bcf.stex"
 [deps]
 
 source_file="res://Sprite/lata.png"
-source_md5="1a35cd2229c7883c9b4f8ee96b1d7dd0"
-
 dest_files=[ "res://.import/lata.png-9238283f42372805b7e120f46b4d3bcf.stex" ]
-dest_md5="9b461e2e4cf0009aa49d9895cf9ef591"
 
 [params]
 

@@ -7,10 +7,7 @@ path="res://.import/sprite_07.png-4edd9945331f5edd234d0acd5a14fe65.stex"
 [deps]
 
 source_file="res://Sprite/Player/sprite_07.png"
-source_md5="eb838c5391370d939c79f7c7efcb5ae3"
-
 dest_files=[ "res://.import/sprite_07.png-4edd9945331f5edd234d0acd5a14fe65.stex" ]
-dest_md5="deedcc41271f0f9a2c911d8d79dc3106"
 
 [params]
 
