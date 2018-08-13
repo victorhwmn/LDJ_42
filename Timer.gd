@@ -30,7 +30,7 @@ func _brota_lixo():
 	var i = 0;
 	while a != true:
 		i = i + 1;
-		print("i:",i,"teste");
+		#print("i:",i,"teste");
 		_gera_coordenada();
 		#verifica se existe algo na matriz ou se o número gerado já existe
 		if TrashMatrix[x][y] == -1:
@@ -39,7 +39,7 @@ func _brota_lixo():
 			_instancia_lixo()
 		if i == 50:
 			var t = Timer.new()
-			t.set_wait_time(2)
+			t.set_wait_time(3)
 			t.set_one_shot(true)
 			self.add_child(t)
 			t.start()

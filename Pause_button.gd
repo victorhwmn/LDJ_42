@@ -8,14 +8,14 @@ func _ready():
 	pass
 
 func _input(event):
-	print("oi")
+	#print("oi")
 	if(event.is_action_pressed("ui_cancel")):
 		_on_pause_pressed();
 	pass
 
 func _on_pause_pressed():
 	
-	print(texto)
+	#print(texto)
 	texto.set_visible(!texto.is_visible());
 	if texto.is_visible():
 		get_node("/root/MainGame/Control").set_as_toplevel(true)
