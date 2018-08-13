@@ -1,47 +1,48 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://MainGame.gd" type="Script" id=1]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Sprite/Player/sprite_00.png" type="Texture" id=3]
-[ext_resource path="res://Sprite/Player/sprite_10.png" type="Texture" id=4]
-[ext_resource path="res://Sprite/Player/sprite_11.png" type="Texture" id=5]
-[ext_resource path="res://Sprite/Player/sprite_01.png" type="Texture" id=6]
-[ext_resource path="res://Sprite/Player/sprite_02.png" type="Texture" id=7]
+[ext_resource path="res://Pause.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sprite/Player/sprite_00.png" type="Texture" id=4]
+[ext_resource path="res://Sprite/Player/sprite_01.png" type="Texture" id=5]
+[ext_resource path="res://Sprite/Player/sprite_02.png" type="Texture" id=6]
+[ext_resource path="res://Sprite/Player/sprite_03.png" type="Texture" id=7]
 [ext_resource path="res://Sprite/Player/sprite_07.png" type="Texture" id=8]
 [ext_resource path="res://Sprite/Player/sprite_08.png" type="Texture" id=9]
-[ext_resource path="res://Sprite/Player/sprite_03.png" type="Texture" id=10]
-[ext_resource path="res://Sprite/Player/sprite_04.png" type="Texture" id=11]
-[ext_resource path="res://Sprite/Player/sprite_05.png" type="Texture" id=12]
-[ext_resource path="res://Ambiente.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Sprite/teclas_0.png" type="Texture" id=14]
-[ext_resource path="res://Sprite/teclas_1.png" type="Texture" id=15]
-[ext_resource path="res://Sprite/teclas_2.png" type="Texture" id=16]
-[ext_resource path="res://Sprite/teclas_3.png" type="Texture" id=17]
-[ext_resource path="res://Timer.gd" type="Script" id=18]
-[ext_resource path="res://Label2.gd" type="Script" id=19]
-[ext_resource path="res://Label4.gd" type="Script" id=20]
-[ext_resource path="res://Pause_button.gd" type="Script" id=21]
-[ext_resource path="res://Sprite/pause.png" type="Texture" id=22]
-[ext_resource path="res://Reload.gd" type="Script" id=23]
-[ext_resource path="res://Sprite/reload.png" type="Texture" id=24]
-[ext_resource path="res://grasstypefire - ludumdare43-BrenoJapa.ogg" type="AudioStream" id=25]
+[ext_resource path="res://Sprite/Player/sprite_10.png" type="Texture" id=10]
+[ext_resource path="res://Sprite/Player/sprite_11.png" type="Texture" id=11]
+[ext_resource path="res://Sprite/Player/sprite_04.png" type="Texture" id=12]
+[ext_resource path="res://Sprite/Player/sprite_05.png" type="Texture" id=13]
+[ext_resource path="res://Ambiente.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Sprite/teclas_0.png" type="Texture" id=15]
+[ext_resource path="res://Sprite/teclas_1.png" type="Texture" id=16]
+[ext_resource path="res://Sprite/teclas_2.png" type="Texture" id=17]
+[ext_resource path="res://Sprite/teclas_3.png" type="Texture" id=18]
+[ext_resource path="res://Timer.gd" type="Script" id=19]
+[ext_resource path="res://Label2.gd" type="Script" id=20]
+[ext_resource path="res://Label4.gd" type="Script" id=21]
+[ext_resource path="res://Pause_button.gd" type="Script" id=22]
+[ext_resource path="res://Sprite/pause.png" type="Texture" id=23]
+[ext_resource path="res://Reload.gd" type="Script" id=24]
+[ext_resource path="res://Sprite/reload.png" type="Texture" id=25]
+[ext_resource path="res://grasstypefire - ludumdare43-BrenoJapa.ogg" type="AudioStream" id=26]
 
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "Stop",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
-"loop": true,
-"name": "Back-walk item",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "Front-walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "Stop item",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 8 ), ExtResource( 9 ) ],
@@ -49,23 +50,43 @@ animations = [ {
 "name": "Back-walk",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ) ],
+"frames": [ ExtResource( 10 ), ExtResource( 11 ) ],
 "loop": true,
-"name": "Stop item",
+"name": "Back-walk item",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 11 ), ExtResource( 12 ) ],
+"frames": [ ExtResource( 12 ), ExtResource( 13 ) ],
 "loop": true,
 "name": "Front-walk item",
 "speed": 5.0
 } ]
 
-[node name="MainGame" type="Node2D"]
+[node name="MainGame" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="Player" parent="." index="0" instance=ExtResource( 2 )]
+[node name="Control" type="Control" parent="." index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Anchor", "Visibility" ]
+
+[node name="Pause" parent="Control" index="0" instance=ExtResource( 2 )]
+
+_sections_unfolded = [ "Rect", "Visibility", "custom_constants" ]
+
+[node name="Player" parent="." index="1" instance=ExtResource( 3 )]
 
 editor/display_folded = true
 position = Vector2( 176, 104 )
@@ -81,14 +102,14 @@ _sections_unfolded = [ "Pause", "Z Index" ]
 
 [node name="Sprite" parent="Player" index="1"]
 
-scale = Vector2( 1e-05, 1e-05 )
+scale = Vector2( 1e-005, 1e-005 )
 _sections_unfolded = [ "Region", "Transform", "Visibility" ]
 
 [node name="banana" parent="Player" index="3"]
 
 _sections_unfolded = [ "Visibility" ]
 
-[node name="Ambiente" parent="." index="1" instance=ExtResource( 13 )]
+[node name="Ambiente" parent="." index="2" instance=ExtResource( 14 )]
 
 editor/display_folded = true
 show_behind_parent = true
@@ -99,22 +120,22 @@ _sections_unfolded = [ "Material", "Visibility" ]
 [node name="tecla_setas" type="Sprite" parent="Ambiente" index="7"]
 
 position = Vector2( 873.449, 185.998 )
-texture = ExtResource( 14 )
+texture = ExtResource( 15 )
 
 [node name="tecla_wasd" type="Sprite" parent="Ambiente" index="8"]
 
 position = Vector2( 969.62, 185.461 )
-texture = ExtResource( 15 )
+texture = ExtResource( 16 )
 
 [node name="tecla_space" type="Sprite" parent="Ambiente" index="9"]
 
 position = Vector2( 872.778, 256.052 )
-texture = ExtResource( 16 )
+texture = ExtResource( 17 )
 
 [node name="tecla_q" type="Sprite" parent="Ambiente" index="10"]
 
 position = Vector2( 970.194, 269.991 )
-texture = ExtResource( 17 )
+texture = ExtResource( 18 )
 
 [node name="or_1" type="Label" parent="Ambiente" index="11"]
 
@@ -213,15 +234,15 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect" ]
 
-[node name="Timer" type="Timer" parent="." index="2"]
+[node name="Timer" type="Timer" parent="." index="3"]
 
 process_mode = 1
 wait_time = 3.0
 one_shot = false
 autostart = true
-script = ExtResource( 18 )
+script = ExtResource( 19 )
 
-[node name="Score_Level" type="ParallaxBackground" parent="." index="3"]
+[node name="Score_Level" type="ParallaxBackground" parent="." index="4"]
 
 layer = 2
 offset = Vector2( 0, 0 )
@@ -316,7 +337,7 @@ autowrap = true
 percent_visible = 0.777778
 lines_skipped = 0
 max_lines_visible = -1
-script = ExtResource( 19 )
+script = ExtResource( 20 )
 _sections_unfolded = [ "Anchor", "Focus", "Margin", "Rect", "Size Flags" ]
 
 [node name="Level" type="Label" parent="Score_Level/PanelContainer/GridContainer" index="2"]
@@ -361,7 +382,7 @@ valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-script = ExtResource( 20 )
+script = ExtResource( 21 )
 _sections_unfolded = [ "Size Flags" ]
 
 [node name="Pause_button" type="Button" parent="Score_Level" index="1"]
@@ -378,25 +399,24 @@ margin_bottom = 52.0
 rect_scale = Vector2( 2, 2 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
+mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 toggle_mode = false
-enabled_focus_mode = 2
+enabled_focus_mode = 0
 shortcut = null
 group = null
 flat = true
 align = 1
-script = ExtResource( 21 )
-_sections_unfolded = [ "Pause", "Rect", "Size Flags" ]
+script = ExtResource( 22 )
+_sections_unfolded = [ "Focus", "Mouse", "Pause", "Size Flags", "Visibility" ]
 
 [node name="II" type="Sprite" parent="Score_Level/Pause_button" index="0"]
 
 position = Vector2( 6.4534, 12.5583 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 22 )
+texture = ExtResource( 23 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Reload" type="Button" parent="Score_Level" index="2"]
@@ -424,46 +444,21 @@ shortcut = null
 group = null
 flat = true
 align = 1
-script = ExtResource( 23 )
+script = ExtResource( 24 )
 _sections_unfolded = [ "Pause", "Rect" ]
 
 [node name="Sprite" type="Sprite" parent="Score_Level/Reload" index="0"]
 
 position = Vector2( 6.01506, 10.4693 )
 scale = Vector2( 0.815455, 1.34757 )
-texture = ExtResource( 24 )
+texture = ExtResource( 25 )
 _sections_unfolded = [ "Transform" ]
-
-[node name="Pause" type="Label" parent="." index="4"]
-
-show_behind_parent = true
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 381.0
-margin_top = 257.0
-margin_right = 422.0
-margin_bottom = 271.0
-rect_scale = Vector2( 6, 6 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-text = "PAUSE"
-align = 1
-valign = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="5"]
 
-stream = ExtResource( 25 )
+stream = ExtResource( 26 )
 volume_db = 0.0
+pitch_scale = 1.0
 autoplay = true
 mix_target = 0
 bus = "Master"

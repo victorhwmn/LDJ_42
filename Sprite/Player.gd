@@ -326,32 +326,36 @@ func _joga_obj() :
 					var item = spawn_itens[Com_objeto].instance()
 					item.set_position(Vector2((96*pos_x)+176,(80*(pos_y-1))+104))
 					get_node("/root/MainGame").add_child(item)
+					flag_acao = true;					
 					_interacao_player_obj(Com_objeto+3)
-					flag_acao = true;
+
 			2 :
 				if pos_y < 4 and Timer.TrashMatrix[pos_x][pos_y+1] == -1  and position.y == matrixY[pos_y] and position.x == matrixX[pos_x]:
 					Timer.TrashMatrix[pos_x][pos_y+1] = Com_objeto;
 					var item = spawn_itens[Com_objeto].instance()
 					item.set_position(Vector2((96*pos_x)+176,(80*(pos_y+1))+104))
-					get_node("/root/MainGame").add_child(item)					
+					get_node("/root/MainGame").add_child(item)
+					flag_acao = true;										
 					_interacao_player_obj(Com_objeto+3)
-					flag_acao = true;
+
 			3 : 
 				if pos_x > 0 and Timer.TrashMatrix[pos_x-1][pos_y] == -1  and position.y == matrixY[pos_y] and position.x == matrixX[pos_x]:
 					Timer.TrashMatrix[pos_x-1][pos_y] = Com_objeto;
 					var item = spawn_itens[Com_objeto].instance()
 					item.set_position(Vector2((96*(pos_x-1))+176,(80*pos_y)+104))
-					get_node("/root/MainGame").add_child(item)					
+					get_node("/root/MainGame").add_child(item)
+					flag_acao = true;										
 					_interacao_player_obj(Com_objeto+3)
-					flag_acao = true;
+
 			4 : 
 				if pos_x < 6 and Timer.TrashMatrix[pos_x+1][pos_y] == -1  and position.y == matrixY[pos_y] and position.x == matrixX[pos_x]:
 					Timer.TrashMatrix[pos_x+1][pos_y] = Com_objeto;
 					var item = spawn_itens[Com_objeto].instance()
 					item.set_position(Vector2((96*(pos_x+1))+176,(80*pos_y)+104))
-					get_node("/root/MainGame").add_child(item)					
+					get_node("/root/MainGame").add_child(item)	
+					flag_acao = true;									
 					_interacao_player_obj(Com_objeto+3)
-					flag_acao = true;
+
 #		if position.y > matrixY[pos_y] :
 #			set_position(position - deslocamento_y);
 #		else :
