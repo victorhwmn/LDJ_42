@@ -6,6 +6,8 @@ extends RigidBody2D
 var matrixY =[104,184,264,344,424];
 var matrixX =[176,272,368,464,560,656,752]
 onready var timer = get_node("/root/MainGame/Timer")
+var x
+var y
 
 signal atualiza_matriz
 
@@ -15,13 +17,10 @@ func _ready():
 	pass
 
 func _process(delta):
-	var x
-	var y
-	var pos = get_position()
-	#print (pos)
+
+	var pos = get_position()	#print (pos)
 	var obj = get_colliding_bodies()
-	#print(obj)
-	if obj.empty() == false:
+	if x == null and y == null :
 		#x = matrixX.find(pos.x)
 		for i in range(7):
 			if matrixX[i] == pos.x:
@@ -31,10 +30,15 @@ func _process(delta):
 		for i in range(5):
 			if matrixY[i] == pos.y:
 				y = i
-				break
+				break	
+	
+	#print(obj)
+	if obj.empty() == false:
 		#print(x," ",y)
 		#print(pos.x," ",pos.y)
 		timer.connect("atualiza_matriz", self, "atualiza_matriz")
 		emit_signal("atualiza_matriz", Vector2(x,y))
 		queue_free();
+	if timer.TrashMatrix[x][y] == -1 :
+		queue_free();		
 #	pass

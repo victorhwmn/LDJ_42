@@ -4,9 +4,10 @@ var x
 var y
 signal lixeiras_pos
 var lixeira = [
-	preload("res://Lixeira-Amarela.tscn"),
+	preload("res://Lixeira-Marrom.tscn"),
 	preload("res://Lixeira-Azul.tscn"),
-	preload("res://Lixeira-Marrom.tscn")]
+	preload("res://Lixeira-Amarela.tscn")
+	]
 var pos = [Vector2(), Vector2(), Vector2()]
 
 func _ready():
@@ -81,13 +82,20 @@ func _game_over_check() :
 	#print("direcao =",direcao_block,"	teto = ",teto);
 	if direcao_block >= teto :
 		var t = Timer.new()
-		t.set_wait_time(3)
+		t.set_wait_time(0.5)
 		t.set_one_shot(true)
 		self.add_child(t)
 		t.start()
 		yield(t, "timeout")
 		t.queue_free()
-		if $Player.Com_objeto != -1 :
+		if $Player.Com_objeto != -1 :	
+			#print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+			t.set_wait_time(2)
+			t.set_one_shot(true)
+			self.add_child(t)
+			t.start()
+			yield(t, "timeout")
+			t.queue_free()
 			get_tree().change_scene("res://Game_over.tscn")
 			
 	

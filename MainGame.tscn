@@ -76,7 +76,7 @@ _sections_unfolded = [ "Pause", "Z Index" ]
 
 [node name="Sprite" parent="Player" index="1"]
 
-scale = Vector2( 1e-005, 1e-005 )
+scale = Vector2( 1e-05, 1e-05 )
 _sections_unfolded = [ "Region", "Transform", "Visibility" ]
 
 [node name="banana" parent="Player" index="3"]

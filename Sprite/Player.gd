@@ -10,11 +10,18 @@ var pos_x = 0;
 var pos_y = 0;
 var matrixY =[104,184,264,344,424];
 var matrixX =[176,272,364,460,552,648,740]
-var d;
+var dx;
+var dy;
 var mov_flag = 0;
 var Com_objeto = -1;
 var points = 0
+var flag_acao = false;
 signal posicao_player
+var spawn_itens = [
+	preload("res://Losangulo.tscn"),
+	preload("res://Triangulo.tscn"),
+	preload("res://Quadrado.tscn")]
+onready var Matrix = get_node("/root/MainGame/Timer").TrashMatrix
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -30,12 +37,14 @@ func _physics_process(delta):
 	var inputR = false;
 	var inputU = false;
 	var inputD = false;
+	var inputInteracao = false;
 	var is_pressed = false;
 	
 	inputL = Input.is_action_pressed("ui_left") or Input.is_key_pressed(KEY_A);
 	inputR = Input.is_action_pressed("ui_right") or Input.is_key_pressed(KEY_D);
 	inputU = Input.is_action_pressed("ui_up") or Input.is_key_pressed(KEY_W);
 	inputD = Input.is_action_pressed("ui_down") or Input.is_key_pressed(KEY_S);
+	inputInteracao = Input.is_key_pressed(KEY_Q) or Input.is_key_pressed(KEY_SPACE);
 	
 	direcao = 0;
 	if inputU:
@@ -46,6 +55,11 @@ func _physics_process(delta):
 		direcao = 3;
 	if inputR:
 		direcao = 4;
+	flag_acao = false;	
+	if inputInteracao :
+		_joga_obj();
+		direcao = 0;
+		
 	if(direcao > 1 ):
 		if Com_objeto == -1 :
 			$Sprites.play(sprite[1])
@@ -103,7 +117,10 @@ func _atualiza_pos(direcao):
 	var dif;
 	
 	if direcao != 0:
-		d = direcao;
+		if direcao == 1 or direcao == 2:
+			dy = direcao;
+		if direcao == 3 or direcao == 4:
+			dx = direcao;
 		
 	if position.y > 104 and direcao == 1 :
 		if 	_verifica_posicao(direcao) :
@@ -118,7 +135,8 @@ func _atualiza_pos(direcao):
 		if 	_verifica_posicao(direcao) :
 			set_position(position + deslocamento_x);	
 	elif direcao == 0 :
-		_aproximacao_player()
+		if flag_acao == false :
+			_aproximacao_player()
 	
 	var flag = false;
 	i = 0;
@@ -129,6 +147,7 @@ func _atualiza_pos(direcao):
 			flag = true;
 			pos_y = i;
 		else :		
+			#if Matrix[pos_x][i] == -1:
 			dif = position.y - matrixY[i];
 			if abs(dif) < abs(pisoy) :
 				pisoy = dif;
@@ -141,6 +160,7 @@ func _atualiza_pos(direcao):
 			flag = true;
 			pos_x = i;
 		else :
+			#if Matrix[i][pos_y] == -1:
 			dif = position.x - matrixX[i]
 			if abs(dif) < abs(pisox) :
 				pisox = dif;
@@ -160,6 +180,8 @@ func _verifica_posicao(direcao) :
 				if 	(pos_y > 0 and Matrix[pos_x][pos_y-1] != -1) and position.y == matrixY[pos_y]:
 					if!(_interacao_player_obj(Matrix[pos_x][pos_y-1])):
 						direcao = 0;
+					else :
+						Matrix[pos_x][pos_y-1] = -1;
 			else :
 				direcao = 0;
 			continue;
@@ -168,6 +190,8 @@ func _verifica_posicao(direcao) :
 				if 	pos_y <  4 and Matrix[pos_x][pos_y+1] != -1 and position.y == matrixY[pos_y]:
 					if!(_interacao_player_obj(Matrix[pos_x][pos_y+1])) :
 						direcao = 0;
+					else :
+						Matrix[pos_x][pos_y+1] = -1;
 			else :
 				direcao = 0;
 			continue;
@@ -176,6 +200,8 @@ func _verifica_posicao(direcao) :
 				if 	(pos_x > 0 and Matrix[pos_x-1][pos_y] != -1) and position.x == matrixX[pos_x]:
 					if!(_interacao_player_obj(Matrix[pos_x-1][pos_y])):
 						direcao = 0;
+					else :
+						Matrix[pos_x-1][pos_y] = -1;
 			else :
 				direcao = 0;
 			continue;
@@ -184,6 +210,8 @@ func _verifica_posicao(direcao) :
 				if 	(pos_x < 6 and Matrix[pos_x+1][pos_y] != -1) and position.x == matrixX[pos_x]:
 					if!(_interacao_player_obj(Matrix[pos_x+1][pos_y])):
 						direcao = 0;
+					else :
+						Matrix[pos_x+1][pos_y] = -1;
 			else:		
 				direcao = 0;	
 			continue;
@@ -199,31 +227,33 @@ func _aproximacao_player() :
 	var pisoy = 100000;
 	var i = 0;
 	var dif;
-	
+
 	
 	var flagChangeX = true;
 	var flagChangeY = true;
 	for i in range(5):
 		if position.y != matrixY[i] :
 			dif = position.y - matrixY[i];
+			#if Matrix[pos_x][i] == -1:
 			if abs(dif) < abs(pisoy) : 
 				pisoy = dif;
 				pos_y = i;
-				if d == 1 and dif < 0:
+				if dy == 1 and dif < 0:
 					pisoy = pisoy * -1;
-				elif d == 2 and dif > 0:
+				elif dy == 2 and dif > 0:
 					pisoy = pisoy * -1
 		else :
 			flagChangeY = false;
 	for i in range(7):
 		if position.x != matrixX[i] :
 			dif = position.x - matrixX[i]
+			#if Matrix[i][pos_y] == -1:
 			if abs(dif) < abs(pisox) :
 				pisox = dif;
 				pos_x = i;
-				if d == 3 and dif < 0:
+				if dx == 3 and dif < 0:
 					pisox = pisox * -1;
-				elif d == 4 and dif > 0:
+				elif dx == 4 and dif > 0:
 					pisox = pisox * -1
 		else :
 			flagChangeX = false;		
@@ -262,9 +292,9 @@ func _interacao_player_obj(matrix) :
 	elif matrix >= 3:
 		match matrix:
 			3 :
-				if Com_objeto == 2 :
+				if Com_objeto == 0 :
 					Com_objeto = -1; 
-					$lata.hide()
+					$banana.hide();
 					points += 10
 				continue;
 			4 :
@@ -274,13 +304,49 @@ func _interacao_player_obj(matrix) :
 					points += 10
 				continue;
 			5 :
-				if Com_objeto == 0 :
-					$banana.hide();
+				if Com_objeto == 2 :
+					$lata.hide()
 					Com_objeto = -1;
 					points += 10
 				continue;
 	return(false);		
-			 		
+			 	
+func _joga_obj() :
+	var Timer = get_node("/root/MainGame/Timer")
+	if Com_objeto != -1 :
+		match direcao :
+			1 : 
+				if pos_y > 0 and Timer.TrashMatrix[pos_x][pos_y-1] == -1  and position.y == matrixY[pos_y] and position.x == matrixX[pos_x]:
+					Timer.TrashMatrix[pos_x][pos_y-1] = Com_objeto;
+					var item = spawn_itens[Com_objeto].instance()
+					item.set_position(Vector2((96*pos_x)+176,(80*(pos_y-1))+104))
+					get_node("/root/MainGame").add_child(item)
+					_interacao_player_obj(Com_objeto+3)
+					flag_acao = true;
+			2 :
+				if pos_y < 4 and Timer.TrashMatrix[pos_x][pos_y+1] == -1  and position.y == matrixY[pos_y] and position.x == matrixX[pos_x]:
+					Timer.TrashMatrix[pos_x][pos_y+1] = Com_objeto;
+					var item = spawn_itens[Com_objeto].instance()
+					item.set_position(Vector2((96*pos_x)+176,(80*(pos_y+1))+104))
+					get_node("/root/MainGame").add_child(item)					
+					_interacao_player_obj(Com_objeto+3)
+					flag_acao = true;
+			3 : 
+				if pos_x > 0 and Timer.TrashMatrix[pos_x-1][pos_y] == -1  and position.y == matrixY[pos_y] and position.x == matrixX[pos_x]:
+					Timer.TrashMatrix[pos_x-1][pos_y] = Com_objeto;
+					var item = spawn_itens[Com_objeto].instance()
+					item.set_position(Vector2((96*(pos_x-1))+176,(80*pos_y)+104))
+					get_node("/root/MainGame").add_child(item)					
+					_interacao_player_obj(Com_objeto+3)
+					flag_acao = true;
+			4 : 
+				if pos_x < 6 and Timer.TrashMatrix[pos_x+1][pos_y] == -1  and position.y == matrixY[pos_y] and position.x == matrixX[pos_x]:
+					Timer.TrashMatrix[pos_x+1][pos_y] = Com_objeto;
+					var item = spawn_itens[Com_objeto].instance()
+					item.set_position(Vector2((96*(pos_x+1))+176,(80*pos_y)+104))
+					get_node("/root/MainGame").add_child(item)					
+					_interacao_player_obj(Com_objeto+3)
+					flag_acao = true;
 #		if position.y > matrixY[pos_y] :
 #			set_position(position - deslocamento_y);
 #		else :

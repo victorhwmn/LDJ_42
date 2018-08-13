@@ -18,7 +18,7 @@ var spawn_itens = [
 	preload("res://Losangulo.tscn"),
 	preload("res://Triangulo.tscn"),
 	preload("res://Quadrado.tscn")]
-enum Objetos {Banana = 0,Papel,Latinha,LixeiraAmarelo,LixeiraAzul,LixeiraMarrom}
+enum Objetos {Banana = 0,Papel,Latinha,LixeiraMarrom,LixeiraAzul,LixeiraAmarelo}
 
 func _ready():
 	#quando o tempo acaba brota mais lixo
