@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ld42_pickup.wav-a4aac9cc7022d4f86efd0b9b96947aae.sample"
+
+[deps]
+
+source_file="res://Musicas/ld42_pickup.wav"
+dest_files=[ "res://.import/ld42_pickup.wav-a4aac9cc7022d4f86efd0b9b96947aae.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -87,15 +87,14 @@ func _game_over_check() :
 		self.add_child(t)
 		t.start()
 		yield(t, "timeout")
-		t.queue_free()
 		if $Player.Com_objeto != -1 :	
 			#print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
 			t.set_wait_time(2)
 			t.set_one_shot(true)
-			self.add_child(t)
 			t.start()
 			yield(t, "timeout")
 			t.queue_free()
+			get_node("/root/MainGame/Game_Over_Song").play()
 			get_tree().change_scene("res://Game_over.tscn")
 			
 	

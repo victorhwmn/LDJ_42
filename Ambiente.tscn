@@ -19,42 +19,42 @@ texture = ExtResource( 1 )
 
 [node name="lixeira_amarela" type="Sprite" parent="." index="1"]
 
-position = Vector2( 41.8533, 448.146 )
+position = Vector2( 31.6006, 223.216 )
 scale = Vector2( 0.59612, 0.532041 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 
 [node name="lixeira_marrom" type="Sprite" parent="." index="2"]
 
-position = Vector2( 41.087, 507.096 )
+position = Vector2( 30.8343, 291.789 )
 scale = Vector2( 0.59612, 0.532041 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="lixeira_azul" type="Sprite" parent="." index="3"]
 
-position = Vector2( 42.1962, 397.907 )
+position = Vector2( 32.6642, 139.498 )
 scale = Vector2( 0.59612, 0.532041 )
 texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="banana" type="Sprite" parent="." index="4"]
 
-position = Vector2( 101.368, 509.525 )
+position = Vector2( 87.9624, 300.027 )
 scale = Vector2( 0.59612, 0.532041 )
 texture = ExtResource( 5 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="lata" type="Sprite" parent="." index="5"]
 
-position = Vector2( 100.846, 451.446 )
+position = Vector2( 88.5228, 231.327 )
 scale = Vector2( 0.59612, 0.532041 )
 texture = ExtResource( 6 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="papel" type="Sprite" parent="." index="6"]
 
-position = Vector2( 99.1812, 403.419 )
+position = Vector2( 88.9285, 145.899 )
 scale = Vector2( 0.481833, 0.46128 )
 texture = ExtResource( 7 )
 _sections_unfolded = [ "Transform" ]

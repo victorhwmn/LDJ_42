@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ld42_gameover.wav-cac039da270ba6e2b9c052247970a866.sample"
+
+[deps]
+
+source_file="res://Musicas/ld42_gameover.wav"
+dest_files=[ "res://.import/ld42_gameover.wav-cac039da270ba6e2b9c052247970a866.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

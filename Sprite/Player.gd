@@ -78,6 +78,7 @@ func _physics_process(delta):
 					$lata.show();
 					continue;		
 			
+			
 	elif direcao == 1:
 		if Com_objeto == -1 :
 			$Sprites.play(sprite[2])
@@ -288,6 +289,7 @@ func _interacao_player_obj(matrix) :
 	
 	#print(matrix,"aaa",Com_objeto);
 	if matrix > -1 and matrix < 3 and Com_objeto == -1 :
+		get_node("/root/MainGame/Pickup_song").play()
 		Com_objeto = matrix;
 		#print("Com_objeto",Com_objeto);
 		return(true);
@@ -299,6 +301,7 @@ func _interacao_player_obj(matrix) :
 					$banana.hide();
 					if flag_acao == false :
 						points += 10
+						get_node("/root/MainGame/Garbage_Song").play()
 				continue;
 			4 :
 				if Com_objeto == 1 :
@@ -306,6 +309,7 @@ func _interacao_player_obj(matrix) :
 					Com_objeto = -1;
 					if flag_acao == false :
 						points += 10
+						get_node("/root/MainGame/Garbage_Song").play()
 				continue;
 			5 :
 				if Com_objeto == 2 :
@@ -313,7 +317,9 @@ func _interacao_player_obj(matrix) :
 					Com_objeto = -1;
 					if flag_acao == false :
 						points += 10
+						get_node("/root/MainGame/Garbage_Song").play()
 				continue;
+		
 	return(false);		
 			 	
 func _joga_obj() :

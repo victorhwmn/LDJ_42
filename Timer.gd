@@ -45,6 +45,7 @@ func _brota_lixo():
 			t.start()
 			yield(t, "timeout")
 			t.queue_free()
+			get_node("/root/MainGame/Game_Over_Song").play()
 			get_tree().change_scene("res://Game_over.tscn");
 			a = true;
 
@@ -84,6 +85,7 @@ func _instancia_lixo():
 	var item = spawn_itens[obj].instance()
 	item.set_position(Vector2((96*x)+176,(80*y)+104))
 	get_node("/root/MainGame").add_child(item)
+	get_node("/root/MainGame/Heap_Song").play()
 	
 	
 	

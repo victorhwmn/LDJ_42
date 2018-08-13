@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://MainGame.gd" type="Script" id=1]
 [ext_resource path="res://Pause.tscn" type="PackedScene" id=2]
@@ -25,7 +25,11 @@
 [ext_resource path="res://Sprite/pause.png" type="Texture" id=23]
 [ext_resource path="res://Reload.gd" type="Script" id=24]
 [ext_resource path="res://Sprite/reload.png" type="Texture" id=25]
-[ext_resource path="res://grasstypefire - ludumdare43-BrenoJapa.ogg" type="AudioStream" id=26]
+[ext_resource path="res://Musicas/grasstypefire - ludumdare43-BrenoJapa.ogg" type="AudioStream" id=26]
+[ext_resource path="res://Musicas/ld42_gameover.wav" type="AudioStream" id=27]
+[ext_resource path="res://Musicas/ld42_garbage.wav" type="AudioStream" id=28]
+[ext_resource path="res://Musicas/ld42_heap.wav" type="AudioStream" id=29]
+[ext_resource path="res://Musicas/ld42_pickup.wav" type="AudioStream" id=30]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -111,7 +115,6 @@ _sections_unfolded = [ "Visibility" ]
 
 [node name="Ambiente" parent="." index="2" instance=ExtResource( 14 )]
 
-editor/display_folded = true
 show_behind_parent = true
 position = Vector2( 14.0959, -10.197 )
 scale = Vector2( 1, 1.0625 )
@@ -129,12 +132,12 @@ texture = ExtResource( 16 )
 
 [node name="tecla_space" type="Sprite" parent="Ambiente" index="9"]
 
-position = Vector2( 872.778, 256.052 )
+position = Vector2( 862.757, 301.638 )
 texture = ExtResource( 17 )
 
 [node name="tecla_q" type="Sprite" parent="Ambiente" index="10"]
 
-position = Vector2( 970.194, 269.991 )
+position = Vector2( 965.183, 315.433 )
 texture = ExtResource( 18 )
 
 [node name="or_1" type="Label" parent="Ambiente" index="11"]
@@ -167,10 +170,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 911.0
-margin_top = 240.0
-margin_right = 951.0
-margin_bottom = 254.0
+margin_left = 904.0
+margin_top = 285.0
+margin_right = 944.0
+margin_bottom = 299.0
 rect_scale = Vector2( 1.25, 1.25 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -191,10 +194,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 840.0
-margin_top = 103.0
-margin_right = 1076.0
-margin_bottom = 134.0
+margin_left = 714.0
+margin_top = 35.0
+margin_right = 1040.0
+margin_bottom = 117.0
 rect_scale = Vector2( 1.25, 1.25 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -202,8 +205,11 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-text = "MOVE AND TAKE 
-THE TRASHES WITH"
+text = "MOVE, GET THE 
+TRASH  AND 
+DROP IT IN  THE
+TRASH CANS WITH"
+align = 1
 valign = 1
 percent_visible = 1.0
 lines_skipped = 0
@@ -216,10 +222,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 845.0
-margin_top = 208.0
-margin_right = 940.0
-margin_bottom = 222.0
+margin_left = 824.0
+margin_top = 227.0
+margin_right = 969.0
+margin_bottom = 258.0
 rect_scale = Vector2( 1.25, 1.25 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -227,8 +233,33 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-text = "SWITCH TRASH"
+text = "DROP THE TRASH 
+ON THE GROUND WITH"
+align = 1
 valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Label2" type="Label" parent="Ambiente" index="16"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 828.0
+margin_top = 318.0
+margin_right = 961.0
+margin_bottom = 332.0
+rect_scale = Vector2( 1.25, 1.25 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "AND A DIRECTIONAL"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -454,12 +485,49 @@ scale = Vector2( 0.815455, 1.34757 )
 texture = ExtResource( 25 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="5"]
+[node name="Main_Song" type="AudioStreamPlayer" parent="." index="5"]
 
 stream = ExtResource( 26 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = true
+mix_target = 0
+bus = "Master"
+
+[node name="Game_Over_Song" type="AudioStreamPlayer" parent="." index="6"]
+
+stream = ExtResource( 27 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+_sections_unfolded = [ "Pause" ]
+
+[node name="Garbage_Song" type="AudioStreamPlayer" parent="." index="7"]
+
+stream = ExtResource( 28 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Heap_Song" type="AudioStreamPlayer" parent="." index="8"]
+
+stream = ExtResource( 29 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Pickup_song" type="AudioStreamPlayer" parent="." index="9"]
+
+stream = ExtResource( 30 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
 mix_target = 0
 bus = "Master"
 

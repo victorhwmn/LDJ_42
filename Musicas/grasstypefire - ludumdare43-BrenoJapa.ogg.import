@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/grasstypefire - ludumdare43-BrenoJapa.ogg-4c98dc5dd36de3b68c4739532dcb6223.oggstr"
+
+[deps]
+
+source_file="res://Musicas/grasstypefire - ludumdare43-BrenoJapa.ogg"
+dest_files=[ "res://.import/grasstypefire - ludumdare43-BrenoJapa.ogg-4c98dc5dd36de3b68c4739532dcb6223.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
