@@ -8,7 +8,7 @@
 [ext_resource path="res://Sprite/lata.png" type="Texture" id=6]
 [ext_resource path="res://Sprite/papel.png" type="Texture" id=7]
 
-[node name="Ambiente" type="Node2D"]
+[node name="Ambiente" type="Node2D" index="0"]
 
 [node name="Piso" type="Sprite" parent="." index="0"]
 

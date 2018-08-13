@@ -14,6 +14,10 @@ config/name="LDJ_42"
 run/main_scene="res://MainGame.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Manage_scene="*res://Manage_scene.gd"
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"

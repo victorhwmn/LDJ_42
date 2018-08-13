@@ -5,13 +5,12 @@ extends Label
 # var b = "textvar"
 
 func _ready():
-	# Called when the node is added to the scene for the first time.
+	# Called every time the node is added to the scene.
 	# Initialization here
 	pass
 
 func _process(delta):
-	var points = get_node("/root/MainGame/Player").points
-	Manage_scene.score = points
+	var points = Manage_scene.score
 	#print(points)
 	set_text(" " + str(points));
 	pass

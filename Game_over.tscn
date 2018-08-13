@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Sprite/Game_over.png" type="Texture" id=1]
 [ext_resource path="res://Sprite/botao_generico.png" type="Texture" id=2]
 [ext_resource path="res://TextureButton.gd" type="Script" id=3]
+[ext_resource path="res://Label.gd" type="Script" id=4]
 
-[node name="Game_over" type="Node2D"]
+[node name="Game_over" type="Node2D" index="0"]
 
 [node name="Game_over" type="Sprite" parent="." index="0"]
 
@@ -36,5 +37,54 @@ group = null
 texture_normal = ExtResource( 2 )
 script = ExtResource( 3 )
 _sections_unfolded = [ "Textures" ]
+
+[node name="Score" type="Label" parent="." index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 398.0
+margin_top = 282.0
+margin_right = 473.0
+margin_bottom = 296.0
+rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Your score :"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Label" type="Label" parent="." index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 566.0
+margin_top = 281.0
+margin_right = 609.0
+margin_bottom = 295.0
+rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+size_flags_stretch_ratio = 1.03
+text = "ABCD"
+align = 3
+percent_visible = 1.16667
+lines_skipped = 0
+max_lines_visible = -1
+script = ExtResource( 4 )
+_sections_unfolded = [ "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Rect", "Size Flags", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
 
 
