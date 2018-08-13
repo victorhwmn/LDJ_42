@@ -137,14 +137,14 @@ func _atualiza_pos(direcao):
 	flag = false;
 	i = 0;
 	while i < 7 and flag == false :
-			if position.x == matrixX[i] :
-				flag = true;
+		if position.x == matrixX[i] :
+			flag = true;
+			pos_x = i;
+		else :
+			dif = position.x - matrixX[i]
+			if abs(dif) < abs(pisox) :
+				pisox = dif;
 				pos_x = i;
-			else :
-				dif = position.x - matrixX[i]
-				if abs(dif) < abs(pisox) :
-					pisox = dif;
-					pos_x = i;
 			i = i+1;
 	#print(pos_x,"aaaa",pos_y)
 	emit_signal("posicao_player", Vector2(pos_x, pos_y))			
@@ -187,7 +187,7 @@ func _verifica_posicao(direcao) :
 			else:		
 				direcao = 0;	
 			continue;
-	print("direcao",direcao)
+	#print("direcao",direcao)
 	if direcao == 0 :
 		_aproximacao_player()
 		return(false);
@@ -254,10 +254,10 @@ func _aproximacao_player() :
 
 func _interacao_player_obj(matrix) :
 	
-	print(matrix,"aaa",Com_objeto);
+	#print(matrix,"aaa",Com_objeto);
 	if matrix > -1 and matrix < 3 and Com_objeto == -1 :
 		Com_objeto = matrix;
-		print("Com_objeto",Com_objeto);
+		#print("Com_objeto",Com_objeto);
 		return(true);
 	elif matrix >= 3:
 		match matrix:

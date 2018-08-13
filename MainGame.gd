@@ -35,6 +35,9 @@ func _ready():
 	
 	pass
 
+func _process(delta):
+	_game_over_check() 
+
 func _gera_coordenada():
 	x = 0;
 	y = 0;
@@ -43,7 +46,53 @@ func _gera_coordenada():
 		x = randi()%7
 		randomize()
 		y = randi()%5
+func _game_over_check() :
 	
+	var flag_canto_y = false;
+	var flag_canto_x = false;
+	var direcao_block = 0;
+	var teto = 4;
+	
+	if $Player.pos_y > 0 :
+		if $Timer.TrashMatrix[$Player.pos_x][$Player.pos_y-1] != -1 :
+			direcao_block = direcao_block+1;
+	else :
+		flag_canto_y = true;
+	if $Player.pos_y < 4 :
+		if $Timer.TrashMatrix[$Player.pos_x][$Player.pos_y+1] != -1:
+			direcao_block = direcao_block+1;
+	else :
+		flag_canto_y = true;
+	if $Player.pos_x > 0:	
+		if $Timer.TrashMatrix[$Player.pos_x-1][$Player.pos_y] != -1:
+			direcao_block = direcao_block+1;
+	else :
+		flag_canto_x = true;
+	if $Player.pos_x < 6 :
+		if $Timer.TrashMatrix[$Player.pos_x+1][$Player.pos_y] != -1 :
+			direcao_block = direcao_block +1;
+	else :
+		flag_canto_x = true;
+		
+	if flag_canto_x == true : 
+		teto = teto - 1;
+	if flag_canto_y == true :
+		teto = teto - 1;
+	#print("direcao =",direcao_block,"	teto = ",teto);
+	if direcao_block >= teto :
+		var t = Timer.new()
+		t.set_wait_time(3)
+		t.set_one_shot(true)
+		self.add_child(t)
+		t.start()
+		yield(t, "timeout")
+		t.queue_free()
+		if $Player.Com_objeto != -1 :
+			get_tree().change_scene("res://Game_over.tscn")
+			
+	
+	
+
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.

@@ -27,13 +27,27 @@ func _ready():
 	
 func _brota_lixo():
 	var a = false
+	var i = 0;
 	while a != true:
-		_gera_coordenada()
+		i = i + 1;
+		print("i:",i,"teste");
+		_gera_coordenada();
 		#verifica se existe algo na matriz ou se o número gerado já existe
 		if TrashMatrix[x][y] == -1:
 			a = true
 			TrashMatrix[x][y] = obj
 			_instancia_lixo()
+		if i == 50:
+			var t = Timer.new()
+			t.set_wait_time(2)
+			t.set_one_shot(true)
+			self.add_child(t)
+			t.start()
+			yield(t, "timeout")
+			t.queue_free()
+			get_tree().change_scene("res://Game_over.tscn");
+			a = true;
+
 	trashcount += 1
 	if trashcount % 20 == 0:
 		trashcount = 0

@@ -72,7 +72,7 @@ _sections_unfolded = [ "Pause", "Z Index" ]
 
 [node name="Sprite" parent="Player" index="1"]
 
-scale = Vector2( 1e-005, 1e-005 )
+scale = Vector2( 1e-05, 1e-05 )
 _sections_unfolded = [ "Region", "Transform", "Visibility" ]
 
 [node name="banana" parent="Player" index="3"]
@@ -108,10 +108,10 @@ scroll_base_scale = Vector2( 1, 1 )
 scroll_limit_begin = Vector2( 0, 0 )
 scroll_limit_end = Vector2( 0, 0 )
 scroll_ignore_camera_zoom = false
+_sections_unfolded = [ "Scroll" ]
 
 [node name="PanelContainer" type="PanelContainer" parent="Score_Level" index="0"]
 
-editor/display_folded = true
 show_behind_parent = true
 anchor_left = 0.5
 anchor_top = 0.0

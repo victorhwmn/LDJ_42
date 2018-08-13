@@ -13,7 +13,7 @@ func _process(delta):
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
 	var obj = get_colliding_bodies()
-	print(obj)
+	#print(obj)
 	if obj.empty() == false:
 		queue_free();
 #	pass

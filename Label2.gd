@@ -11,6 +11,6 @@ func _ready():
 
 func _process(delta):
 	var points = get_node("/root/MainGame/Player").points
-	print(points)
+	#print(points)
 	set_text(" " + str(points));
 	pass
