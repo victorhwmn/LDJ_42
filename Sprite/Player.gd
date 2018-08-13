@@ -38,6 +38,7 @@ func _physics_process(delta):
 	var inputR = false;
 	var inputU = false;
 	var inputD = false;
+	var inputPause = false;
 
 	var is_pressed = false;
 	

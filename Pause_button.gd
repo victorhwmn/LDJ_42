@@ -1,7 +1,6 @@
 extends Button
 
 onready var texto = get_node("/root/MainGame/Pause");
-var flag;
 
 func _ready():
 	texto.set_visible(0);

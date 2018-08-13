@@ -61,7 +61,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="stage" type="Sprite" parent="." index="7"]
 
-position = Vector2( 483.211, 289.148 )
+position = Vector2( 483.211, 292.148 )
 scale = Vector2( 0.969401, 0.953585 )
 texture = ExtResource( 8 )
 
